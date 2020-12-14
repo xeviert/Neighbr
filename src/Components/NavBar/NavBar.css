@@ -1,0 +1,18 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #aaa;
+}
+
+.links {
+    float: right;
+    margin-bottom: 5px;
+}
+
+h1 {
+    margin-left: 6px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}

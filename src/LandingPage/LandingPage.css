@@ -1,0 +1,33 @@
+#about-page {
+    padding: 95px 15px 0px;
+}
+
+.info {
+    background-color: #d9d9d9;
+    text-align: center;
+}
+
+#phone {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#screenshot {
+    border-style: solid;
+    border-color: black;
+    height: 220px;
+    width: 150px;
+    border-radius: 15px;
+}
+
+#register-box {
+    margin-bottom: 85px;
+    background-color: #d9d9d9;
+    text-align: center;
+}
+
+#get-started {
+    width: 30%;
+}

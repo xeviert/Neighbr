@@ -1,0 +1,26 @@
+.favor-item {
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.favor-item-initials {
+    font-size: 50px;
+    padding-top: 40px;
+    padding-right: 35px;
+    padding-left: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0%;
+}
+
+#favor-title {
+    margin-bottom: 0;
+}

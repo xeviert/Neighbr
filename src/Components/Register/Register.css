@@ -1,0 +1,29 @@
+#register-container {
+    padding: 95px 15px 0px;
+}
+
+#register-section {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 85%;
+    left: 0;
+    right: 0;
+}
+
+input {
+    width: 90%;
+}
+
+#label-id {
+    text-align: left;
+}
+
+#btn {
+    width: 90px;
+    margin-bottom: 20px;
+}
+
+#sign-in-section {
+    text-align: center;
+}

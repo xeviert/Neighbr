@@ -1,0 +1,10 @@
+.status-update {
+    padding-top: 115px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.initials {
+    font-size: 50px;
+}

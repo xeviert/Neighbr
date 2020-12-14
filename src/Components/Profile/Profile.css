@@ -1,0 +1,24 @@
+#profile-container {
+    padding: 95px 15px 0px;
+}
+
+#profile-header {
+    padding-bottom: 20px;
+}
+
+#profile {
+    height: 410px;
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+p {
+    margin-left: 9px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
