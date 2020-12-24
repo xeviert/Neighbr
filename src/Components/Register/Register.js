@@ -23,8 +23,8 @@ export default class Register extends Component {
                 <label for="confirm-pw" id="label-id">Confirm Password:</label>
                     <input type="text" id="confirm-pw" name="confirm-pw"></input>      
                 </form>
-                <form action="../Feed/feed.html">
-                    <input type="submit" id='btn' value="Get Started" />
+                <form>
+                <Link to='/'><input type="submit" id='btn' value="Get Started" /></Link>
                 </form> 
             </section>
 

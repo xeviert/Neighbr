@@ -8,7 +8,8 @@ import Register from './Components/Register/Register';
 import Profile from './Components/Profile/Profile';
 import LandingPage from './LandingPage/LandingPage';
 
-function App() {
+function App() { 
+
   return (
     <Router>
       <NavBar />

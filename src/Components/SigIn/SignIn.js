@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './SignIn.css';
 
 export default class LogIn extends Component {
@@ -18,7 +19,7 @@ export default class LogIn extends Component {
                 </form>
 
                 <form>
-                        <input type="submit" id='btn' value="Sign" />
+                    <Link to='/'><input type="submit" id='btn' value="Sign" /></Link>
                 </form>
                 </section>
             </div>

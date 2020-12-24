@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './FavorItem.css'
 
-export default class FavorItem extends Component {
-    render() {
-        const { title, payment, description } = this.props
+const FavorItem = ({ title, payment, description }) => {
         return (
             <div className='favor-item'>
                 <div className='favor-item-initials'>
@@ -11,19 +9,20 @@ export default class FavorItem extends Component {
                 </div>
 
                 <div id="status">
-                    <h3 id='favor-title'>Favor Title</h3>
+                    <h3 id='favor-title'>{title}</h3>
                     <div>
                         Posted 6 hours ago
                     </div>
                     <div>
-                        Payment: $$
+                        Payment: {payment}
                     </div>
                     <div>
-                        {description}
+                        description
                     </div>
                     <button>View</button>
                 </div>
             </div>
         )
-    }
 }
+
+export default FavorItem;
