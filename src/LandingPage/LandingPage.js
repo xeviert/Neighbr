@@ -35,7 +35,7 @@ export default class LandingPage extends Component {
                         <h3>Help Your Neighbr Now!</h3>
                     </div>
                     <form>
-                    <Link to='/register'><input type="submit" id='get-started' value="Get Started" /></Link>
+                        <input type="submit" id='get-started' value="Get Started" />
                     </form>
                 </section>
             </div>
