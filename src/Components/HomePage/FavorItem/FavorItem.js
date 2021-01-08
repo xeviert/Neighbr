@@ -17,7 +17,7 @@ const FavorItem = ({ title, payment, description }) => {
                         Payment: {payment}
                     </div>
                     <div>
-                        description
+                        {description}
                     </div>
                     <button>View</button>
                 </div>

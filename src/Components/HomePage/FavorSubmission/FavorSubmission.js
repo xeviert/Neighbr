@@ -8,15 +8,15 @@ const FavorSubmission = () => {
     const [description, setDescription] = useState('');
     const [favors, setFavors] = useContext(FavorContext);
 
-    const updateTitle = e => {
+    const addTitle = e => {
         setTitle(e.target.value);
     }
 
-    const updatePayment = e => {
+    const addPayment = e => {
         setPayment(e.target.value);
     }
 
-    const updateDescription = e => {
+    const addDescription = e => {
         setDescription(e.target.value);
     }
 
@@ -31,9 +31,9 @@ const FavorSubmission = () => {
                 TP
             </div>
             <form onSubmit={addFavor}>
-                <input id="title" type="text" placeholder="Favor Title" name="title" value={title} onChange={updateTitle}></input>
-                <input id="payment" type="text" placeholder="Payment $$" name="payment" value={payment} onChange={updatePayment}></input>
-                <textarea id="description" placeholder="Description" name="description" value={description} onChange={updateDescription}></textarea>
+                <input id="title" type="text" placeholder="Favor Title" name="title" value={title} onChange={addTitle}></input>
+                <input id="payment" type="text" placeholder="Payment $$" name="payment" value={payment} onChange={addPayment}></input>
+                <textarea id="description" placeholder="Description" name="description" value={description} onChange={addDescription}></textarea>
                 <button>Submit</button>
             </form>
         </div>

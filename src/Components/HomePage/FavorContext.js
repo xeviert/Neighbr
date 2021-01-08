@@ -32,7 +32,7 @@ export const FavorProvider = props => {
     ]);
 
     return(
-        <FavorContext.Provider value={[favors, setFavors ]}>
+        <FavorContext.Provider value={[ favors, setFavors ]}>
             {props.children}
         </FavorContext.Provider>
     );
