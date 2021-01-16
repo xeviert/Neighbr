@@ -1,0 +1,9 @@
+.favors-list {
+    margin-bottom: 80px;
+}
+
+@media all and (min-width: 600px) {
+    .favors-list {
+        margin-bottom: 190px;
+    }
+}

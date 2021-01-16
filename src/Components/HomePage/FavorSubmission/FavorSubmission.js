@@ -1,43 +1,75 @@
-import React, { useState, useContext } from 'react';
-import { FavorContext } from '../FavorContext'
+import React, { Component } from 'react';
+import config from '../../../config';
+import TokenService from '../../../Services/token-service'
 import './FavorSubmission.css';
 
-const FavorSubmission = () => {
-    const [title, setTitle] = useState('');
-    const [payment, setPayment] = useState('');
-    const [description, setDescription] = useState('');
-    const [favors, setFavors] = useContext(FavorContext);
+class FavorSubmission extends Component {
 
-    const addTitle = e => {
-        setTitle(e.target.value);
+    state = {
+        error: null,
+        title: '',
+        payment: '',
+        description: ''
     }
 
-    const addPayment = e => {
-        setPayment(e.target.value);
-    }
 
-    const addDescription = e => {
-        setDescription(e.target.value);
-    }
+    handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
-    const addFavor = e => {
+    handleSubmit = (e) => {
         e.preventDefault();
-        setFavors(prevFavors => [...prevFavors, { title, payment, description }])
+        this.setState({ error: null });
+
+        const favor = {
+            title: this.state.title,
+            payment: this.state.payment,
+            description: this.state.description,
+            posted: new Date(),
+        }
+
+        fetch(`${config.API_ENDPOINT}/favors`, {
+            method: "POST",
+            body: JSON.stringify(favor),
+            headers: {
+              "content-type": "application/json",
+              authorization: `Bearer ${TokenService.getAuthToken()}`,
+            }    
+        })
+        .then(res => res.json())
+        .then(favor => {
+            console.log(favor)
+            this.props.addFavor(favor)
+            this.setState({title:'', payment: '', description: ''})
+
+        })
+        .catch((e) => {
+            this.setState({ error: e.message })
+        })
     }
-    
-    return (
-        <div className='status-update'>
-            <div className='initials'>
-                TP
+
+    render() {
+        const { error, favor } = this.state;
+        return (
+            <div className='status-update'>
+                <div className='initials'>
+                    TP
+                </div>
+                <form onSubmit={this.handleSubmit}>
+                    {error && <p>{error}</p>}
+
+                    <input id="title" type="text" placeholder="Favor Title" value={this.state.title} name="title" onChange={this.handleChange}></input>
+
+                    <input id="payment" type="text" placeholder="Payment $$" value={this.state.payment} name="payment" onChange={this.handleChange}></input>
+                    
+                    <div id='status-update-second'>
+
+                    <textarea id="description" placeholder="Description" value={this.state.description} name="description" onChange={this.handleChange}></textarea>
+
+                    <button type='submit' id='favor-btn'>+</button>
+                    </div>
+                </form>
             </div>
-            <form onSubmit={addFavor}>
-                <input id="title" type="text" placeholder="Favor Title" name="title" value={title} onChange={addTitle}></input>
-                <input id="payment" type="text" placeholder="Payment $$" name="payment" value={payment} onChange={addPayment}></input>
-                <textarea id="description" placeholder="Description" name="description" value={description} onChange={addDescription}></textarea>
-                <button>Submit</button>
-            </form>
-        </div>
-    )
+        )
+    }
 }
 
 export default FavorSubmission

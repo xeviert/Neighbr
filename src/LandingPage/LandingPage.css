@@ -5,6 +5,9 @@
 .info {
     background-color: #d9d9d9;
     text-align: center;
+    border-radius: 8px;
+    padding-bottom: 6px;
+    padding-right: 2px;
 }
 
 #phone {
@@ -20,14 +23,53 @@
     height: 220px;
     width: 150px;
     border-radius: 15px;
+    margin-bottom: 65px;
 }
 
 #register-box {
-    margin-bottom: 85px;
+    margin-bottom: 3px;
     background-color: #d9d9d9;
     text-align: center;
+    border-radius: 8px;
+    padding-bottom: 10px;
 }
 
-#get-started {
+#lp-btn {
     width: 30%;
+    color: #fff !important;
+    text-decoration: none;
+    background: #144274c7;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s ease 0s;
+    margin: 2px
+}
+
+#lp-btn {
+    background: #8f352e;
+    letter-spacing: 1px;
+    transition: all 0.3s ease 0s;
+}
+
+@media all and (min-width: 600px) {
+   
+    #get-started {
+        font-size: 30px;
+        width: 15%;
+    }
+
+    #about-page {
+        margin-top: 100px;
+    }
+    .info {
+        width: 60%;
+        margin: 0 auto;
+    }
+    #register-box{
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 180px;
+    }
 }

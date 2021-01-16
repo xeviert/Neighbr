@@ -13,38 +13,46 @@ import Context from './Context';
 import config from './config';
 
 class App extends Component { 
-  state = {
-    user: {},
-    favors: [],
-    error: null,
-    setFavors: (favors) => {
-      this.setState({
-        favors,
-        error: null,
-      })
-    },
-    getFavors: () => {
-      fetch(`${config.API_ENDPOINT}/favors`, {
-        method: 'GET',
-        headers: {
-          'content-type': 'application/json',
-          Authorization: `Bearer ${TokenService.getAuthToken()}`,
-        }
-      })
-        .then((res) => {
-          if (!res.ok) {
-            throw new Error(res.status)
-          }
-          return res.json()
-        })
-        .then(this.state.setFavors)
-        .catch((error) => this.setState({ error }))
-    }
-  }
+  // state = {
+  //   user: {},
+  //   favors: [],
+  //   error: null,
+  //   setFavors: (favors) => {
+  //     this.setState({
+  //       favors,
+  //       error: null,
+  //     })
+  //   },
+  //   addFavor: (newFavor) => {
+  //     this.setState({
+  //         favors: [...this.state.favors, newFavor]
+  //     })
+  //   },
+  //   getFavors: () => {
+  //     fetch(`${config.API_ENDPOINT}/favors`, {
+  //       method: 'GET',
+  //       headers: {
+  //         'content-type': 'application/json',
+  //         Authorization: `Bearer ${TokenService.getAuthToken()}`,
+  //       }
+  //     })
+  //       .then((res) => {
+  //         if (!res.ok) {
+  //           throw new Error(res.status)
+  //         }
+  //         return res.json()
+  //       })
+  //       .then(this.state.setFavors)
+  //       .catch((error) => this.setState({ error }))
+  //   },
+  //   logout: () => {
+  //     return this.setState({ favors: [] })
+  //   }
+  // }
 
-componentDidMount() {
-  this.setLoggedInUser()
-}
+// componentDidMount() {
+//   this.setLoggedInUser()
+// }
 
 setLoggedInUser = () => {
   const jwt = TokenService.getAuthToken()
@@ -63,7 +71,7 @@ render() {
   return (
     <Context.Provider 
       value={{
-        setLoggedInUser: this.setLoggedInUser
+        setLoggedInUser: null
         }}>
       <NavBar />
         <Route path="/about" component={LandingPage} />

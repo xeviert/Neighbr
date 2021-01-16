@@ -21,18 +21,20 @@ export default class Register extends React.Component {
             email: email.value,
             password: password.value,
         })
+            .then(res => res.json())
             .then((user) => {
+                console.log(user)
                 this.props.history.push('/login')
             })
-            .catch((res) => {
-                this.setState({ error: res.error })
+            .catch((error) => {
+                this.setState({ error: error })
             })
     }
 
     render() {
         return (
         <div id="register-container">
-            <div>
+            <div id="register-header">
                 <h1>Register for Neighbr</h1>
             </div>
 
@@ -51,7 +53,7 @@ export default class Register extends React.Component {
                     <input type="text" id="password" name="password"></input>
                 <label for="confirm-pw" id="label-id">Confirm Password:</label>
                     <input type="text" id="confirm-pw" name="confirmPassword"></input>      
-                <button type='submit'>
+                <button id="register-btn" type='submit'>
                     Register
                 </button>
                 </form> 
@@ -59,7 +61,7 @@ export default class Register extends React.Component {
 
             <div id='login-section'>
             <p>Already have an account?</p>
-                <p><em>Login</em></p>
+                <Link to='/login'><p><em>Login</em></p></Link>
             </div>
         </div>
         )

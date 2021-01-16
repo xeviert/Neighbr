@@ -1,9 +1,31 @@
 footer {
-  padding: 3% 0;
-  background-color: #aaa;
+  padding: 1% 0;
+  background-color: #BAB2B5;
   position: fixed;
   bottom: 0;
   left: 0;
   text-align: center;
   width: 100%;
+  margin: 0px;
+}
+
+#copyright {
+  font-size: 12px;
+}
+
+#neighbr-footer {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+@media all and (min-width: 600px) {
+
+  #neighbr-footer {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  #copyright {
+    font-size: 22px;
+  }
+
 }

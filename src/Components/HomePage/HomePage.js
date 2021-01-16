@@ -1,20 +1,66 @@
 import React, { Component } from 'react';
 import ListOfFavors from './ListOfFavors/ListOfFavors';
 import FavorSubmission from './FavorSubmission/FavorSubmission';
-import { FavorProvider} from './FavorContext';
+import TokenService from '../../Services/token-service';
+import config from '../../config'
+
+
 
 export default class HomePage extends Component {
+    state = {
+        favors: [{
+            first_name: '',
+            last_name: ''
+        }]
+    }
 
+    getAllFavors() {
+        return fetch(`${config.API_ENDPOINT}/favors`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => {  
+                return res.json()
+            })
+            .then(favors => {
+                this.setState({favors})
+            })
+    }       
+
+    componentDidMount() {
+        this.getAllFavors()
+    }
     
+    addFavor = (favor) => {
+        this.setState({
+            favors: [...this.state.favors, favor]
+        })
+    }
+
+    // setLoggedInUser = () => {
+    // const jwt = TokenService.getAuthToken()
+    // this.setState({
+    //     setLoggedInUser: { loaded: true, },
+    //     jwt
+    // })
+    // }
 
     render() {
+        //check if I have an authToken
+        // const value = {
+        //     favors: this.state.favors,
+        // }
+        const {favors} = this.state
+
         return (
-            <FavorProvider>
+            // <FavorProvider>
                 <div>
-                    <FavorSubmission />
-                    <ListOfFavors />
+                    <FavorSubmission addFavor={this.addFavor} />
+                    <ListOfFavors favors={favors} />
                 </div>
-            </FavorProvider>
+            // </FavorProvider>
         )
     }
 }

@@ -1,19 +1,20 @@
 .favor-item {
     padding-bottom: 20px;
     display: flex;
-    flex-wrap: wrap;
     border-style: solid;
-    border-color: black;
+    border-color: rgba(255, 255, 255, 0.486);
+    background-color: rgba(255, 255, 255, 0.603);
     border-width: thin;
     border-radius: 10px;
     margin-bottom: 8px;
 }
 
 .favor-item-initials {
-    font-size: 50px;
-    padding-top: 40px;
-    padding-right: 35px;
+    font-size: 35px;
+    padding-top: 35px;
+    padding-right: 15px;
     padding-left: 10px;
+    position: static;
 }
 
 ul {

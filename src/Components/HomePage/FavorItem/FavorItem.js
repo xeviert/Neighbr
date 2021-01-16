@@ -1,28 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { formatDistance, subDays } from 'date-fns';
+import Moment from 'moment'
+
 import './FavorItem.css'
 
-const FavorItem = ({ title, payment, description }) => {
-        return (
-            <div className='favor-item'>
-                <div className='favor-item-initials'>
-                    XT
-                </div>
+const FavorItem = (props) => {
 
-                <div id="status">
-                    <h3 id='favor-title'>{title}</h3>
-                    <div>
-                        Posted 6 hours ago
-                    </div>
-                    <div>
-                        Payment: {payment}
-                    </div>
-                    <div>
-                        {description}
-                    </div>
-                    <button>View</button>
-                </div>
+
+
+   
+   //-------------------------------------
+   Moment.locale('en')
+   let dt = props.posted
+
+   return (
+      <div className='favor-item'>
+            <div className='favor-item-initials'>
+            {props.first_name}
             </div>
-        )
+            <div id="status">
+               <h3 id='favor-title'>{props.title}</h3>
+               <div>
+                  {Moment(dt).fromNow()}
+               </div>
+               <div>
+                  Payment: {props.payment}
+               </div>
+               <div>
+                  {props.description}
+               </div>
+            </div>
+         </div>
+   )
 }
+
+
+
 
 export default FavorItem;

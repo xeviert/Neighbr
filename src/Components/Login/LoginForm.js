@@ -20,6 +20,7 @@ export default class LogIn extends Component {
         const user = { email: email.value, password: password.value }
 
         AuthApiService.postLogin(user)
+            .then(res => res.json())
             .then((res) => {
                 email.value = '';
                 password.value = '';
@@ -49,7 +50,7 @@ export default class LogIn extends Component {
                     <label for="password" id="label-id">Password:</label>
                     <input type="text" id="password" name="password"></input>
 
-                <button type='submit'>
+                <button id="login-btn" type='submit'>
                     Login
                 </button>
                 </form>

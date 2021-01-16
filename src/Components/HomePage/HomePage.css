@@ -1,0 +1,11 @@
+#home-page {
+    width: 98%;
+    margin: 0 auto;
+}
+
+@media all and (min-width: 500px) {
+    #home-page {
+        width: 50%;
+        margin: 0 auto;
+    }
+}

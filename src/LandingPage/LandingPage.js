@@ -6,6 +6,15 @@ export default class LandingPage extends Component {
     render() {
         return (
             <div id='about-page'>
+                <section id='register-box'>
+                    <div>
+                        <h3>Help Your Neighbr Now!</h3>
+                    </div>
+                        <Link to='/register'><button id='lp-btn'      value="Get Started">Register</button></Link>
+                        <Link to='/login'><button id='lp-btn' value="Get Started">Login</button></Link>
+                </section>
+
+
                 <section className='info'>
                     <div>
                         <h3>Help Your Neighbr</h3>
@@ -30,14 +39,6 @@ export default class LandingPage extends Component {
                 <div id="screenshot"><em>Screenshot of user UI</em></div>
                 </section>
 
-                <section id='register-box'>
-                    <div>
-                        <h3>Help Your Neighbr Now!</h3>
-                    </div>
-                    <form>
-                        <input type="submit" id='get-started' value="Get Started" />
-                    </form>
-                </section>
             </div>
         )
     }
