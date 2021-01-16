@@ -3,7 +3,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #BAB2B5;
+    background-color: #474747;
 }
 
 .links {
@@ -11,36 +11,45 @@ header {
     margin-bottom: 4px;
 }
 
-h1 {
+.link::after {
+    content: "  ";
+}
+
+#neighbr {
     margin-left: 26px;
-    margin-top: 8px;
-    margin-bottom: 4px;
-    color: #8f352e;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    color: #fbd4d4;
 }
 
-#nav-link:before, #nav-link:after{
+.link:before, .link:after{
     opacity: 0;
-    transition: all 0.3s ease;	
+    transition: all 0.3s ease;
+    color: #e4e3e3	
 }
 
-#nav-link:before{
+.link:before{
     content: '[';
+    color: #e4e3e3
 }
-#nav-link:after{
+.link:after{
     content: ']';
+    color: #e4e3e3
 }
 
-#nav-link:hover:before{
+.link:hover:before{
     margin-right: 3px;
     content: '[';
 
     opacity: 1;
+    color: #e4e3e3
 }
-#nav-link:hover:after{
+.link:hover:after{
     margin-left: 3px;
     content: ']';
 
     opacity: 1;
+    color: #e4e3e3
 }
 
 @media all and (min-width: 600px) {

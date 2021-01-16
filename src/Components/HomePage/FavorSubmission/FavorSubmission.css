@@ -1,5 +1,5 @@
 .status-update {
-    padding-top: 115px;
+    padding-top: 100px;
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -7,7 +7,6 @@
 }
 #status-update-second {
     display: flex;
-
 }
 
 textarea#description {
@@ -17,12 +16,16 @@ textarea#description {
     margin-left: 14px;
     margin-top: 3px;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.733);
-    border-width: thin;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.6)
+    );
+    border: none;
 }
 
 #favor-btn {
-    background: #a53737;
+    background: #1b5b9e;
     color: #FFF;
     text-align: center;
     width: 50px;
@@ -31,9 +34,10 @@ textarea#description {
     font-size: 40px;
     vertical-align: middle;
     overflow: hidden;
-    margin: 5px;
+    margin-left: 15px;
+    margin-top: 10px;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-    border-bottom: solid 3px #a53737;
+    border-bottom: solid 3px #0f3258;
     transition: .4s;
 }
 
@@ -43,16 +47,19 @@ textarea#description {
     transform: translateY(2px);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
     border-bottom: none;
+    background: #d42853;
+
 }
 
 .initials {
     font-size: 50px;
+
 }
 
 @media all and (min-width: 500px) {
     .status-update {
-        width: 75%;
-        padding-top: 215px;
+        width: 50%;
+        padding-top: 160px;
         margin: 30px auto;
     }
     textarea#description {
@@ -63,6 +70,7 @@ textarea#description {
     }
     .initials {
         font-size: 70px;
+        margin: 0 auto;
     }
     #favor-btn {
         width: 90px;

@@ -33,10 +33,10 @@ export default class LandingPage extends Component {
                     </p>
                 </section>
 
-                <section id="phone">
-                <div id="screenshot"><em>Screenshot of user UI</em></div>
-                <div id="screenshot"><em>Screenshot of user UI</em></div>          
-                <div id="screenshot"><em>Screenshot of user UI</em></div>
+                <section className="phone">
+                <div className="screenshot"><em>Screenshot of user UI</em></div>
+                <div className="screenshot"><em>Screenshot of user UI</em></div>          
+                <div className="screenshot"><em>Screenshot of user UI</em></div>
                 </section>
 
             </div>

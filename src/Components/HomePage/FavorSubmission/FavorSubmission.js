@@ -9,7 +9,9 @@ class FavorSubmission extends Component {
         error: null,
         title: '',
         payment: '',
-        description: ''
+        description: '',
+        first_name: '',
+        last_name: ''
     }
 
 

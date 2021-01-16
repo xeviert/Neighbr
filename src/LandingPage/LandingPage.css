@@ -3,39 +3,59 @@
 }
 
 .info {
-    background-color: #d9d9d9;
+    border-color: rgba(255, 255, 255, 0.486);
+    background-color: #ffffff9a;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.4)
+    );
+    border-width: thin;
     text-align: center;
     border-radius: 8px;
     padding-bottom: 6px;
     padding-right: 2px;
 }
 
-#phone {
-    display: flex;
-    justify-content: space-evenly;
+.phone {
+    display: block;
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 
-#screenshot {
+.phone .screenshot {
+    width: 56%;
+    margin-bottom: 4px;
+}
+
+.screenshot {
     border-style: solid;
     border-color: black;
-    height: 220px;
-    width: 150px;
+    height: 320px;
     border-radius: 15px;
-    margin-bottom: 65px;
+    margin: 0 auto;
+    /* margin-bottom: 65px; */
+
 }
 
 #register-box {
-    margin-bottom: 3px;
-    background-color: #d9d9d9;
+    margin-bottom: 1px;
+    border-color: rgba(255, 255, 255, 0.486);
+    background-color: #ffffff9a;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.4)
+    );
+    border-width: thin;
     text-align: center;
     border-radius: 8px;
     padding-bottom: 10px;
 }
 
 #lp-btn {
-    width: 30%;
+    width: 38%;
+    height: 45px;
     color: #fff !important;
     text-decoration: none;
     background: #144274c7;
@@ -43,16 +63,32 @@
     border-radius: 5px;
     border: none;
     transition: all 0.3s ease 0s;
-    margin: 2px
+    margin: 2px;
+    font-size: 25px
 }
 
-#lp-btn {
-    background: #8f352e;
+#lp-btn:hover {
+    background: #d42853;
     letter-spacing: 1px;
     transition: all 0.3s ease 0s;
+    font-size: 28px
 }
 
-@media all and (min-width: 600px) {
+@media all and (min-width: 400px) {
+    .phone {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 120px;
+ 
+    }
+    .screenshot {
+        margin: 0 0 10px 0;
+        height: 520px;
+    }
+
+    .phone .screenshot {
+        width: 18%;
+    }
    
     #get-started {
         font-size: 30px;
@@ -70,6 +106,13 @@
         width: 60%;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 180px;
+        margin-bottom: 10px;
     }
+    #lp-btn {
+        width: 30%;
+        height: 50px;
+        font-size: 28px
+
+    }
+
 }

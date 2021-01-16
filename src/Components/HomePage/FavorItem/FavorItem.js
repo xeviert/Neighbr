@@ -8,7 +8,6 @@ const FavorItem = (props) => {
 
 
 
-   
    //-------------------------------------
    Moment.locale('en')
    let dt = props.posted
@@ -16,12 +15,12 @@ const FavorItem = (props) => {
    return (
       <div className='favor-item'>
             <div className='favor-item-initials'>
-            {props.first_name}
+            {props.first_name.charAt(0)}{props.last_name.charAt(0)}
             </div>
             <div id="status">
                <h3 id='favor-title'>{props.title}</h3>
                <div>
-                  {Moment(dt).fromNow()}
+                  {Moment(dt).local().fromNow()}
                </div>
                <div>
                   Payment: {props.payment}

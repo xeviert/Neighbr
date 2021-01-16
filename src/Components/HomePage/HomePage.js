@@ -33,25 +33,18 @@ export default class HomePage extends Component {
         this.getAllFavors()
     }
     
+    
+
     addFavor = (favor) => {
+        console.log(favor)
         this.setState({
             favors: [...this.state.favors, favor]
         })
     }
 
-    // setLoggedInUser = () => {
-    // const jwt = TokenService.getAuthToken()
-    // this.setState({
-    //     setLoggedInUser: { loaded: true, },
-    //     jwt
-    // })
-    // }
 
     render() {
-        //check if I have an authToken
-        // const value = {
-        //     favors: this.state.favors,
-        // }
+   
         const {favors} = this.state
 
         return (

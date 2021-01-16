@@ -14,8 +14,17 @@
 input {
     width: 90%;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.787);
-    border-width: thin;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.6)
+    );
+    border: none;
+    height: 30px;
+}
+
+h1 {
+    color: #123C69
 }
 
 #label-id {
@@ -42,7 +51,7 @@ input {
 }
 
 #register-btn:hover {
-    background: #8f352e;
+    background: #d42853;
     letter-spacing: 1px;
     transition: all 0.3s ease 0s;
 }
@@ -62,15 +71,16 @@ input {
         right: 0;
     }
     #register-container {
-        width: 60%;
+        width: 80%;
         margin-left: auto;
         margin-right: auto;
         margin-top: 120px;
+        margin-bottom: 150px;
     }
     #register-btn {
         font-size: 30px;
         width: 80%;
-        margin: 0 auto;
+        margin: 2 auto 0;
     }
     #register-header {
         width: 80%;
@@ -80,8 +90,13 @@ input {
     input {
         width: 90%;
         border-radius: 5px;
-        background-color: rgba(255, 255, 255, 0.787);
-        border-width: thin;
+        background: linear-gradient(
+            to right bottom,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0.6)
+        );
+        border: none;
+        height: 40px;
     }
 
 }

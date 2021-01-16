@@ -12,7 +12,7 @@
 }
 
 h2 {
-    color: #8f352e;
+    color:  #123C69;
 }
 
 #login-btn {
@@ -31,9 +31,13 @@ h2 {
 }
 
 #login-btn:hover {
-    background: #8f352e;
+    background: #d42853;
     letter-spacing: 1px;
     transition: all 0.3s ease 0s;
+}
+
+#email, #password {
+    height: 30px;
 }
 
 

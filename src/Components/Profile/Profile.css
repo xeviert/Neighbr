@@ -3,22 +3,45 @@
 }
 
 #profile-header {
-    padding-bottom: 20px;
+    padding-bottom: 1px;
 }
 
 #profile {
     height: 410px;
-    border-style: solid;
-    border-color: black;
+    background: white;
+    border-color: rgba(255, 255, 255, 0.486);
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.1)
+    );
     border-width: thin;
-    border-radius: 10px;
+    border-radius: 2rem;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 80px;
+}
+
+.fullname, .address, .initials {
+    margin: 0 auto;
 }
 
 p {
     margin-left: 9px;
     margin-top: 0px;
     margin-bottom: 2px;
+}
+
+@media all and (min-width: 400px) {
+
+    #profile-container {
+        padding-top: 135px;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .address {
+        font-size: 50px;
+    }
 }
