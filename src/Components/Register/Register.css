@@ -13,6 +13,7 @@
 
 input {
     width: 90%;
+    margin-bottom: 2px;
     border-radius: 5px;
     background: linear-gradient(
         to right bottom,
@@ -20,7 +21,7 @@ input {
         rgba(255, 255, 255, 0.6)
     );
     border: none;
-    height: 30px;
+    height: 25px;
 }
 
 h1 {

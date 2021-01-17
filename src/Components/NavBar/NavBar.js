@@ -9,13 +9,15 @@ import './NavBar.css';
 
 export default class NavBar extends Component {
 
-    logout = (e) => {
+    static contextType = Context
+
+    handleLogout = (e) => {
         TokenService.clearAuthToken();
+        this.context.updateLoginStatus();
     }
 
     //conditional rendering
-
-    render() {
+    renderLoginLink() {
         return (
             <header>
                 <div id='desktop-header'>
@@ -28,10 +30,43 @@ export default class NavBar extends Component {
                     <Link className='link' to='/'>home</Link>
                     <Link className='link' to='/profile'>profile</Link>
                     <Link className='link' to='/about'>about</Link>
-                    <Link className='link' to='/login'><a type='submit' onClick={e => this.logout(e)}>logout</a></Link>
+                    <Link className='link' to='/login'>login</Link>
                 </nav>
                 </div>
             </header>
         )
     }
+
+    renderLogoutLink() {
+        return (
+            <header>
+                <div id='desktop-header'>
+                <h1 id='neighbr'>Neighbr</h1>
+                <nav className='links'>
+                    <Style scopeSelector=".links" rules={{
+                            a: {color: 'white'},
+                            'a:visited': {color: 'white'} 
+                    }} />
+                    <Link className='link' to='/'>home</Link>
+                    <Link className='link' to='/profile'>profile</Link>
+                    <Link className='link' to='/about'>about</Link>
+                    <Link className='link' to='/login'><a type='submit' onClick={e => this.handleLogout(e)}>logout</a></Link>
+                </nav>
+                </div>
+            </header>
+        )
+    }
+
+    render() {
+
+            return (
+                <>
+                {TokenService.hasAuthToken()
+                    ? this.renderLogoutLink()
+                    : this.renderLoginLink()
+                }
+                </>
+            )
+    } 
+    
 }

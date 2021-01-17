@@ -7,7 +7,7 @@ body {
   font-size: 18px;
   font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif;
   color: #123C69;
-  background-color: #82dff0;
+  background: linear-gradient(90deg, rgba(130,240,212,1) 0%, rgba(130,223,240,1) 18%);
   line-height: 1.5;
 }
 

@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import FavorItem from '../FavorItem/FavorItem';
-import './ListOfFavors.css'
+import Context from '../../../Context';
+import './ListOfFavors.css';
 
-const ListOfFavors = (props) => {
+class ListOfFavors extends Component {
+    static contextType = Context; 
 
+   
+
+    static defaultProps = {
+        match: {
+            params: {},
+        }
+    }
+
+
+    render() {
+
+        const { favors } = this.context;
     return (
         <section className='favors-list'>              
-             {props.favors.map(favor => (
+             {favors.map(favor => (
                     <FavorItem 
                         title={favor.title} 
                         payment={favor.payment} 
@@ -18,7 +32,7 @@ const ListOfFavors = (props) => {
                     />                   
                 ))}                
         </section>
-    )
+    )}
 }
 
 export default ListOfFavors;

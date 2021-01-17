@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import config from '../../../config';
-import TokenService from '../../../Services/token-service'
+import TokenService from '../../../Services/token-service';
+import Context from '../../../Context'
+// import { NeighbrContext } from '../../../Context'
 import './FavorSubmission.css';
 
 class FavorSubmission extends Component {
 
+    static contextType = Context;
+
+    
     state = {
         error: null,
         title: '',
         payment: '',
         description: '',
-        first_name: '',
-        last_name: ''
     }
 
 
@@ -38,10 +41,8 @@ class FavorSubmission extends Component {
         })
         .then(res => res.json())
         .then(favor => {
-            console.log(favor)
-            this.props.addFavor(favor)
+            this.context.addFavor(favor)
             this.setState({title:'', payment: '', description: ''})
-
         })
         .catch((e) => {
             this.setState({ error: e.message })
@@ -49,15 +50,17 @@ class FavorSubmission extends Component {
     }
 
     render() {
-        const { error, favor } = this.state;
+        const { error } = this.state;
+        const { first_name, last_name } = this.context
+
         return (
             <div className='status-update'>
                 <div className='initials'>
-                    TP
+                    {first_name.charAt(0)}{last_name.charAt(0)}
                 </div>
                 <form onSubmit={this.handleSubmit}>
                     {error && <p>{error}</p>}
-
+                    
                     <input id="title" type="text" placeholder="Favor Title" value={this.state.title} name="title" onChange={this.handleChange}></input>
 
                     <input id="payment" type="text" placeholder="Payment $$" value={this.state.payment} name="payment" onChange={this.handleChange}></input>
@@ -74,4 +77,5 @@ class FavorSubmission extends Component {
     }
 }
 
+// FavorSubmission.contextType = NeighbrContext;
 export default FavorSubmission

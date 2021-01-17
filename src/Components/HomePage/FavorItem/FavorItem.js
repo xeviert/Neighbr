@@ -1,39 +1,48 @@
-import React from 'react';
-import { formatDistance, subDays } from 'date-fns';
+import React, { Component }  from 'react';
+import Context from '../../../Context'
 import Moment from 'moment'
 
 import './FavorItem.css'
+import { render } from '@testing-library/react';
 
-const FavorItem = (props) => {
+class FavorItem extends Component {
+
+   static defaultProps = {
+
+   };
+
+   static contextType = Context;
 
 
 
-   //-------------------------------------
-   Moment.locale('en')
-   let dt = props.posted
+   render() {
 
-   return (
-      <div className='favor-item'>
-            <div className='favor-item-initials'>
-            {props.first_name.charAt(0)}{props.last_name.charAt(0)}
-            </div>
-            <div id="status">
-               <h3 id='favor-title'>{props.title}</h3>
-               <div>
-                  {Moment(dt).local().fromNow()}
+      const first_name = this.props.first_name.charAt(0)
+      const last_name = this.props.last_name.charAt(0)
+
+      Moment.locale('en')
+      let dt = this.props.posted
+
+         return (
+            <div className='favor-item'>
+                  <div className='favor-item-initials'>
+                  {first_name}{last_name}
+                  </div>
+                  <div id="status">
+                     <h3 id='favor-title'>{this.props.title}</h3>
+                     <div>
+                        {Moment(dt).local().fromNow()}
+                     </div>
+                     <div>
+                        Payment: {this.props.payment}
+                     </div>
+                     <div>
+                        {this.props.description}
+                     </div>
+                  </div>
                </div>
-               <div>
-                  Payment: {props.payment}
-               </div>
-               <div>
-                  {props.description}
-               </div>
-            </div>
-         </div>
-   )
+         )
+   }
 }
-
-
-
 
 export default FavorItem;
