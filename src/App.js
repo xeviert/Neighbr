@@ -14,13 +14,18 @@ import config from './config';
 
 
 class App extends Component { 
-  state = {
-    first_name: '',
-    last_name: '',
-    address: '',
-    favors: [],
-    loggedIn: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      first_name: '',
+      last_name: '',
+      address: '',
+      email: '',
+      favors: [],
+      loggedIn: false
+    }
   }
+
 
   getUserProfile() {
         fetch(`${config.API_ENDPOINT}/profile`, {
@@ -37,7 +42,8 @@ class App extends Component {
           this.setState({
             first_name: user[0].first_name,
             last_name: user[0].last_name,
-            address: user[0].address
+            address: user[0].address,
+            email: user[0].email,
             })
         })
   }
@@ -56,12 +62,6 @@ class App extends Component {
         })
   }  
 
-  // loadUser = (user) => {
-  //   this.setState({
-  //     user: [...this.state.user, user]
-  //   })
-  // }
-
     handleAddFavor = (favor) => {
       this.setState({
           favors: [...this.state.favors, favor]
@@ -69,39 +69,29 @@ class App extends Component {
       this.getAllFavors()
     }
 
-  //   logout: () => {
-  //     return this.setState({ favors: [] })
-  //   }
-  // }
 
     componentDidMount() {
+      this.getAllFavors()      
       if (TokenService.hasAuthToken()) {
           return (
-            this.getAllFavors(),
             this.getUserProfile()
           )
       }
     }
 
-// setLoggedInUser = () => {
-//   const jwt = TokenService.getAuthToken()
-//   let userId;
-//   if (!!jwt) {
-//     userId = JSON.parse(window.atob(jwt.split(".")[1])).userId;
-//   } else {
-//     userId = 0;
-//   }
-//   this.setState({
-//     setLoggedInUser: { loaded: true, userId }
-//   })
-// }
-
-
   handleUpdateLoggedInOrOut = () => {
-		this.setState({
-			loggedIn: true,
-		});
+  const jwt = TokenService.getAuthToken()
+  let userId;
+  if (!!jwt) {
+    userId = JSON.parse(window.atob(jwt.split(".")[1])).userId;
+  } else {
+    userId = 0;
   }
+  this.setState({
+    loggedIn: { loaded: true, userId }
+  })
+  }
+
 
   renderRoutes() {
     return (
@@ -109,7 +99,7 @@ class App extends Component {
         <Switch>
             <Route path="/about" component={LandingPage} />
             <Route path="/register" component={Register} />
-            <Route path="/login" component={LoginPage} />
+            <Route path="/login"  component={LoginPage} />
             <PrivateRoute path="/" exact component={HomePage} />
             <PrivateRoute path="/profile" component={Profile} />
         </Switch>      
@@ -122,9 +112,12 @@ class App extends Component {
       first_name: this.state.first_name,
       last_name: this.state.last_name,
       address: this.state.address,
+      email: this.state.email,
       favors: this.state.favors,
       updateLoginStatus: this.handleUpdateLoggedInOrOut,
       addFavor: this.handleAddFavor,
+      getAllFavors: this.getAllFavors,
+      getUserProfile: this.getUserProfile
     }
 
   return (

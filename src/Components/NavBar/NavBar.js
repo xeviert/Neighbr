@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../Services/token-service';
 import Context from '../../Context'
-import Radium, {Style} from 'radium';
+import {Style} from 'radium';
 
 import './NavBar.css';
 
@@ -30,7 +30,7 @@ export default class NavBar extends Component {
                     <Link className='link' to='/'>home</Link>
                     <Link className='link' to='/profile'>profile</Link>
                     <Link className='link' to='/about'>about</Link>
-                    <Link className='link' to='/login'>login</Link>
+                    <Link className='link' to='/login' onClick={e => this.handleLogout(e)}>login</Link>
                 </nav>
                 </div>
             </header>
@@ -50,7 +50,7 @@ export default class NavBar extends Component {
                     <Link className='link' to='/'>home</Link>
                     <Link className='link' to='/profile'>profile</Link>
                     <Link className='link' to='/about'>about</Link>
-                    <Link className='link' to='/login'><a type='submit' onClick={e => this.handleLogout(e)}>logout</a></Link>
+                    <Link className='link' to='/login' onClick={e => this.handleLogout(e)}>logout</Link>
                 </nav>
                 </div>
             </header>

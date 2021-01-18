@@ -3,7 +3,6 @@ import Context from '../../../Context'
 import Moment from 'moment'
 
 import './FavorItem.css'
-import { render } from '@testing-library/react';
 
 class FavorItem extends Component {
 
@@ -30,14 +29,15 @@ class FavorItem extends Component {
                   </div>
                   <div id="status">
                      <h3 id='favor-title'>{this.props.title}</h3>
-                     <div>
-                        {Moment(dt).local().fromNow()}
-                     </div>
-                     <div>
-                        Payment: {this.props.payment}
+
+                     <div className='payment-info'>
+                        payment: {this.props.payment}
                      </div>
                      <div>
                         {this.props.description}
+                     </div>
+                     <div className='time-posted'>
+                        posted: {Moment(dt).local().fromNow()}
                      </div>
                   </div>
                </div>

@@ -4,6 +4,7 @@ import Context from '../../Context';
 
 export default class LoginPage extends Component {
     static contextType = Context
+    
     static defaultProps = {
         location: {},
         history: {
@@ -14,7 +15,7 @@ export default class LoginPage extends Component {
     handleLoginSuccess = (userId) => {
         const { location, history } = this.props
         const destination = (location.state || {}).from || `/`
-        this.props.history.push('/')
+        history.push(destination)
     }
 
     render() {

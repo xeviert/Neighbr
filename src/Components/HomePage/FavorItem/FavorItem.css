@@ -29,15 +29,39 @@ ul {
 }
 
 #favor-title {
-    margin-bottom: 0;
+    margin-bottom: 2px;
 }
 
-@media all and (min-width: 400px) {
+.payment-info {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.time-posted {
+    color: rgba(0, 5, 54, 0.555);
+    font-style: italic;
+    font-size: 14px;
+}
+
+@media all and (min-width: 600px) {
     .favor-item {
         margin: 0 auto 8px;
         width: 60%;
     }
     .favor-item-initials {
         font-size: 80px;
+        margin-right: 55px;
+        margin-left: 20px;
+    }
+    .payment-info {
+        font-size: 26px;
+        margin-bottom: 2px;
+    }
+    
+    .time-posted {
+        color: rgba(0, 5, 54, 0.555);
+        font-style: italic;
+        font-size: 18px;
     }
 }
+

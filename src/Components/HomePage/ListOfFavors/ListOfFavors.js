@@ -6,8 +6,6 @@ import './ListOfFavors.css';
 class ListOfFavors extends Component {
     static contextType = Context; 
 
-   
-
     static defaultProps = {
         match: {
             params: {},

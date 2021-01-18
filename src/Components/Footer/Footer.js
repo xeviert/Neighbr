@@ -5,9 +5,9 @@ export default class Footer extends Component {
     render() {
         return (
             <footer>
-                <a id='neighbr-footer'>Neighbr</a>
+                <div id='neighbr-footer'>Neighbr</div>
                 <br/>
-                <a id='copyright'>Copyright &#169; 2021 Neighbr, Inc.</a>
+                <div id='copyright'>Copyright &#169; 2021 Neighbr, Inc.</div>
             </footer>
         )
     }

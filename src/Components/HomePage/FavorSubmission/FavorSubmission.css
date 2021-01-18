@@ -28,8 +28,8 @@ textarea#description {
     background: #1b5b9e;
     color: #FFF;
     text-align: center;
-    width: 50px;
-    height: 50px;
+    width: 45x;
+    height: 45px;
     border-radius: 50%;
     font-size: 40px;
     vertical-align: middle;
@@ -51,9 +51,8 @@ textarea#description {
 
 }
 
-.initials {
+.initials-sub {
     font-size: 50px;
-
 }
 
 @media all and (min-width: 500px) {
@@ -68,9 +67,10 @@ textarea#description {
         height: 90px;
         margin-left: 35px;
     }
-    .initials {
-        font-size: 70px;
-        margin: 0 auto;
+    .initials-sub {
+        font-size: 90px;
+        margin: 15px auto 0;
+        font-weight: bold;
     }
     #favor-btn {
         width: 90px;

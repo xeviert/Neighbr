@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import config from '../../../config';
 import TokenService from '../../../Services/token-service';
 import Context from '../../../Context'
-// import { NeighbrContext } from '../../../Context'
 import './FavorSubmission.css';
 
 class FavorSubmission extends Component {
@@ -55,7 +54,7 @@ class FavorSubmission extends Component {
 
         return (
             <div className='status-update'>
-                <div className='initials'>
+                <div className='initials-sub'>
                     {first_name.charAt(0)}{last_name.charAt(0)}
                 </div>
                 <form onSubmit={this.handleSubmit}>
@@ -77,5 +76,4 @@ class FavorSubmission extends Component {
     }
 }
 
-// FavorSubmission.contextType = NeighbrContext;
 export default FavorSubmission

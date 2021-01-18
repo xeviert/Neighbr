@@ -36,8 +36,13 @@ h2 {
     transition: all 0.3s ease 0s;
 }
 
+#password {
+    -webkit-text-security: disc;
+}
+
 #email, #password {
     height: 30px;
+    margin: 0 auto;
 }
 
 

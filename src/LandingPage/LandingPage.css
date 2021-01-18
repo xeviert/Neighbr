@@ -23,20 +23,6 @@
     padding-bottom: 60px;
 }
 
-.phone .screenshot {
-    width: 56%;
-    margin-bottom: 4px;
-}
-
-.screenshot {
-    border-style: solid;
-    border-color: black;
-    height: 320px;
-    border-radius: 15px;
-    margin: 0 auto;
-    /* margin-bottom: 65px; */
-
-}
 
 #register-box {
     margin-bottom: 1px;
@@ -74,20 +60,31 @@
     font-size: 28px
 }
 
-@media all and (min-width: 400px) {
+img {
+    display: block;
+    max-width: 450px;
+    max-height: 894px;
+    width: auto;
+    height: auto;
+    width: 70%;
+    margin: 0 auto 4px;
+}
+
+@media (min-width: 600px) {
     .phone {
         display: flex;
         justify-content: space-evenly;
-        margin-bottom: 120px;
- 
-    }
-    .screenshot {
-        margin: 0 0 10px 0;
-        height: 520px;
+        width: 60%;
+        margin: 0 auto 70px;
     }
 
-    .phone .screenshot {
-        width: 18%;
+    img {
+        margin: 0 auto 0;
+        display: block;
+        max-width: 400px;
+        max-height: 795px;
+        width: auto;
+        height: auto;
     }
    
     #get-started {

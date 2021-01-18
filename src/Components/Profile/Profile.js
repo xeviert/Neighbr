@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-// import { NeighbrContext } from '../../Context'
-import config from '../../config'
-import TokenService from '../../Services/token-service';
 import Context from '../../Context'
 import './Profile.css';
 
@@ -14,6 +11,7 @@ export default class Profile extends Component {
         const firstNameInit = this.context.first_name.charAt(0)
         const lastNameInit = this.context.last_name.charAt(0)
         const address = this.context.address
+        const email = this.context.email
 
     
         return (
@@ -29,11 +27,13 @@ export default class Profile extends Component {
                     <div className='address'>
                         {address}
                     </div>
+                    <div className='email'>
+                        {email}
+                    </div>
                 </div>
             </div>
         )
     }
 }
 
-// Profile.contextType = NeighbrContext;
 

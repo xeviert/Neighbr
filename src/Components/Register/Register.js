@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import AuthApiService from '../../Services/auth-api-service'
 import './Register.css';
@@ -42,7 +42,7 @@ export default class Register extends React.Component {
                 <form id="register-form" onSubmit={this.handleSubmit}>
                     {this.state.error && <p className='error'>{this.state.error}</p>}
                 <label for="first-name" id="label-id">First name:</label>
-                    <input type="text" id="first-name" name="first_name"></input>
+                    <input type="text" id="first-name" name="first_name"></input><br/>
                 <label for="last-name" id="label-id">Last name:</label>
                     <input type="text" id="last-name" name="last_name"></input>
                 <label for="address" id="label-id">Address:</label>

@@ -22,12 +22,20 @@
     padding-top: 40px;
 }
 
-.fullname, .address, .initials {
+.fullname, .address, .initials, .email {
     margin: 0 auto;
+    padding-bottom: 25px;
 }
 
+.initials {
+    font-size: 27px;
+}
+
+
 .address {
-    font-size: 25px;
+    font-size: 20px;
+    width: 70%;
+    margin: 0 auto;
 }
 
 p {
@@ -36,7 +44,7 @@ p {
     margin-bottom: 2px;
 }
 
-@media all and (min-width: 400px) {
+@media all and (min-width: 600px) {
 
     #profile-container {
         padding-top: 135px;
@@ -44,7 +52,19 @@ p {
         margin: 0 auto;
     }
 
+    .fullname {
+        font-size: 70px;
+    }
+
     .address {
         font-size: 50px;
+    }
+
+    .initials {
+        font-size: 60px;
+    }
+
+    #profile {
+        height: 710px;
     }
 }
