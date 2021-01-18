@@ -8,7 +8,6 @@ class FavorSubmission extends Component {
 
     static contextType = Context;
 
-    
     state = {
         error: null,
         title: '',
@@ -16,6 +15,9 @@ class FavorSubmission extends Component {
         description: '',
     }
 
+    handleChange = e => {
+        this.setState({ value: e.target.value.substr(0, 150) })
+    }
 
     handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
@@ -57,16 +59,26 @@ class FavorSubmission extends Component {
                 <div className='initials-sub'>
                     {first_name.charAt(0)}{last_name.charAt(0)}
                 </div>
+
                 <form onSubmit={this.handleSubmit}>
                     {error && <p>{error}</p>}
                     
-                    <input id="title" type="text" placeholder="Favor Title" value={this.state.title} name="title" onChange={this.handleChange}></input>
+                    <input id="title" type="text" placeholder="Favor Title" 
+                        value={this.state.title} name="title"
+                        maxLength="20"
+                        onChange={this.handleChange} required></input>
 
-                    <input id="payment" type="text" placeholder="Payment $$" value={this.state.payment} name="payment" onChange={this.handleChange}></input>
+                    <input id="payment" type="text" placeholder="Payment $$" 
+                        value={this.state.payment} name="payment" 
+                        maxLength="20"
+                        onChange={this.handleChange} required></input>
                     
                     <div id='status-update-second'>
 
-                    <textarea id="description" placeholder="Description" value={this.state.description} name="description" onChange={this.handleChange}></textarea>
+                    <textarea id="description" placeholder="Description" 
+                        value={this.state.description} name="description" 
+                        maxLength="300" type="text"
+                        onChange={this.handleChange} required></textarea>
 
                     <button type='submit' id='favor-btn'>+</button>
                     </div>

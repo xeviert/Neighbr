@@ -26,7 +26,7 @@ class ListOfFavors extends Component {
                         posted={favor.posted} 
                         first_name={favor.first_name} 
                         last_name={favor.last_name} 
-                        key={favor.id}
+                        key={favor.favor_id}
                     />                   
                 ))}                
         </section>

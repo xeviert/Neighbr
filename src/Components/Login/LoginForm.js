@@ -46,9 +46,9 @@ export default class LogIn extends Component {
                 <form id="login-form" onSubmit={this.handleLogin}>
                     <div role='alert'>{error && <p>{error}</p>}</div>
                     <label for="email" id="label-id">Email Address:</label>
-                    <input type="text" id="email" name="email"></input>
+                    <input type="text" id="email" name="email" required></input>
                     <label for="password" id="label-id">Password:</label>
-                    <input type="text" id="password" name="password"></input>
+                    <input type="password" id="password" name="password" required></input>
 
                 <button id="login-btn" type='submit'>
                     Login

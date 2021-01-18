@@ -23,8 +23,7 @@ export default class Register extends React.Component {
         })
             .then(res => res.json())
             .then((user) => {
-                console.log(user)
-                this.props.history.push('/login')
+              this.props.history.push('/login')
             })
             .catch((error) => {
                 this.setState({ error: error })
@@ -42,17 +41,17 @@ export default class Register extends React.Component {
                 <form id="register-form" onSubmit={this.handleSubmit}>
                     {this.state.error && <p className='error'>{this.state.error}</p>}
                 <label for="first-name" id="label-id">First name:</label>
-                    <input type="text" id="first-name" name="first_name"></input><br/>
+                    <input type="text" id="first-name" name="first_name" required></input><br/>
                 <label for="last-name" id="label-id">Last name:</label>
-                    <input type="text" id="last-name" name="last_name"></input>
+                    <input type="text" id="last-name" name="last_name" required></input>
                 <label for="address" id="label-id">Address:</label>
-                    <input type="text" id="address" name="address"></input>
+                    <input type="text" id="address" name="address" required></input>
                 <label for="email" id="label-id">Email Address:</label>
-                    <input type="text" id="email" name="email"></input>
+                    <input type="text" id="email" name="email" required></input>
                 <label for="password" id="label-id">Password:</label>
-                    <input type="text" id="password" name="password"></input>
+                    <input type="password" id="password" name="password" required></input>
                 <label for="confirm-pw" id="label-id">Confirm Password:</label>
-                    <input type="text" id="confirm-pw" name="confirmPassword"></input>      
+                    <input type="password" id="confirm-pw" name="confirmPassword" required></input>      
                 <button id="register-btn" type='submit'>
                     Register
                 </button>

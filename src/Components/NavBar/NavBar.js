@@ -27,8 +27,6 @@ export default class NavBar extends Component {
                             a: {color: 'white'},
                             'a:visited': {color: 'white'} 
                     }} />
-                    <Link className='link' to='/'>home</Link>
-                    <Link className='link' to='/profile'>profile</Link>
                     <Link className='link' to='/about'>about</Link>
                     <Link className='link' to='/login' onClick={e => this.handleLogout(e)}>login</Link>
                 </nav>
