@@ -62,8 +62,6 @@ class App extends Component {
         })
   }  
 
-
-
   handleAddFavor = (favor) => {
     this.setState({
         favors: [...this.state.favors, favor]
@@ -80,24 +78,15 @@ class App extends Component {
     }
   }
 
-  // handleUpdateLoggedInOrOut = () => {
-
-  //         const jwt = TokenService.getAuthToken()
-  //         let userId;
-  //         if (!!jwt) {
-  //           userId = JSON.parse(window.atob(jwt.split(".")[1])).userId;
-  //         } else {
-  //           userId = 0;
-  //         }
-  //         this.setState({
-  //           loggedIn: { loaded: true }
-  //         })
-  // }
-
   handleLoginSuccess = () => {
     return this.getUserProfile()
     .then(() => this.getAllFavors())
-}
+  }
+
+  handleLogout = (e) => {
+    TokenService.clearAuthToken();
+    this.setState({ loggedIn: true })
+  }
 
   renderRoutes() {
     return (
@@ -125,6 +114,7 @@ class App extends Component {
       address: this.state.address,
       email: this.state.email,
       favors: this.state.favors,
+      handleLogout: this.handleLogout,
       handleLoginSuccess: this.handleLoginSuccess,
       addFavor: this.handleAddFavor,
       getAllFavors: this.getAllFavors,

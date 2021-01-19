@@ -16,7 +16,8 @@ class FavorItem extends Component {
 
    render() {
 
-      const first_name = this.props.first_name
+      const first = this.props.first_name.charAt(0)
+      const last = this.props.last_name.charAt(0)
 
       Moment.locale('en')
       let dt = this.props.posted
@@ -24,7 +25,7 @@ class FavorItem extends Component {
          return (
             <div className='favor-item' >
                   <div className='favor-item-initials'>
-                  {first_name}
+                  {first}{last}
                   </div>
                   <div id="status">
                      <h3 id='favor-title'>{this.props.title}</h3>
