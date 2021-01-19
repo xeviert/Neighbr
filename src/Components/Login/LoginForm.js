@@ -30,7 +30,6 @@ export default class LogIn extends Component {
                 this.props.history.push(`/`);
                 return this.context.handleLoginSuccess()
             })
-            .then(() => this.props.history.push(`/`))
             .catch((res) => {
                 this.setState({ error: res.error })
             })

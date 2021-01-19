@@ -17,7 +17,7 @@ export default class LoginPage extends Component {
     render() {
         return (
             <section>
-                <LoginForm></LoginForm>
+                <LoginForm history={this.props.history}></LoginForm>
             </section>
         )
     }
