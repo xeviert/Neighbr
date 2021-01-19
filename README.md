@@ -20,3 +20,7 @@ To get started, the user registers to create an account.
 The home page is where the main functionality takes place. The logged in user is able to see favor posts made by other users. At the top of the feed, the user is also able to create a favor post as well. 
 </p>
 <img src="public\images\home-desk.png" />
+
+<p>If you would like to quickly demo Neighbr, please use the login credentials below. Some favors have already been submitted by other accounts.</p>
+<p>Email: test@test.com</p>
+<p>Password: password123</p>
