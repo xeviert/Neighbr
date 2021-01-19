@@ -80,24 +80,23 @@ class App extends Component {
     }
   }
 
-  handleUpdateLoggedInOrOut = () => {
+  // handleUpdateLoggedInOrOut = () => {
 
-          const jwt = TokenService.getAuthToken()
-          let userId;
-          if (!!jwt) {
-            userId = JSON.parse(window.atob(jwt.split(".")[1])).userId;
-          } else {
-            userId = 0;
-          }
-          this.setState({
-            loggedIn: { loaded: true }
-          })
-  }
+  //         const jwt = TokenService.getAuthToken()
+  //         let userId;
+  //         if (!!jwt) {
+  //           userId = JSON.parse(window.atob(jwt.split(".")[1])).userId;
+  //         } else {
+  //           userId = 0;
+  //         }
+  //         this.setState({
+  //           loggedIn: { loaded: true }
+  //         })
+  // }
 
   handleLoginSuccess = () => {
     return this.getUserProfile()
     .then(() => this.getAllFavors())
-    .then(this.handleUpdateLoggedInOrOut)
 }
 
   renderRoutes() {
