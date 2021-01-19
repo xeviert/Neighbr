@@ -28,7 +28,7 @@ export default class LogIn extends Component {
                 const jwt = res.authToken.split(".")[1];
                 const userId = JSON.parse(window.atob(jwt)).user_id;
                 this.props.history.push(`/`);
-                return this.context.handleLoginSuccess()
+                return this.context.handleLoginSuccess(userId)
             })
             .catch((res) => {
                 this.setState({ error: res.error })

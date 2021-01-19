@@ -1,8 +1,4 @@
 import config from '../config'
-import Context from '../Context'
-
-// static contextType = Context
-
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
@@ -16,7 +12,6 @@ var requestOptions = {
 
 const AuthApiService = {
     postLogin(user) {
-        // this.context.updateLoginStatus();
         var raw = JSON.stringify(user);
         requestOptions.body = raw;
         return fetch(`${config.API_ENDPOINT}/login`, requestOptions)
@@ -26,18 +21,6 @@ const AuthApiService = {
         requestOptions.body = raw;
         return fetch(`${config.API_ENDPOINT}/register`, requestOptions)
 
-        // return fetch(`${config.API_ENDPOINT}/register`, {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json',
-        //     },
-        //     body: JSON.stringify(user),
-        // })
-        //     .then(res =>
-        //         (!res.ok)
-        //         ? res.json().then(e => Promise.reject(e))
-        //         : res.json()
-        //     )
     },
 }
 
