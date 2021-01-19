@@ -1,4 +1,8 @@
 import config from '../config'
+import Context from '../Context'
+
+// static contextType = Context
+
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
@@ -12,6 +16,7 @@ var requestOptions = {
 
 const AuthApiService = {
     postLogin(user) {
+        // this.context.updateLoginStatus();
         var raw = JSON.stringify(user);
         requestOptions.body = raw;
         return fetch(`${config.API_ENDPOINT}/login`, requestOptions)

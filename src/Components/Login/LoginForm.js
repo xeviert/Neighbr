@@ -27,8 +27,9 @@ export default class LogIn extends Component {
                 TokenService.saveAuthToken(res.authToken);
                 const jwt = res.authToken.split(".")[1];
                 const userId = JSON.parse(window.atob(jwt)).user_id;
-                this.props.onLoginSuccess(userId)
+                return this.context.handleLoginSuccess()
             })
+            .then(() => this.props.history.push(`/`))
             .catch((res) => {
                 this.setState({ error: res.error })
             })

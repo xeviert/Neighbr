@@ -5,15 +5,17 @@ import Context from '../../Context'
 import {Style} from 'radium';
 
 import './NavBar.css';
+import { render } from 'react-dom';
 
 
 export default class NavBar extends Component {
 
     static contextType = Context
 
+    
+
     handleLogout = (e) => {
         TokenService.clearAuthToken();
-        this.context.updateLoginStatus();
     }
 
     //conditional rendering
@@ -28,7 +30,7 @@ export default class NavBar extends Component {
                             'a:visited': {color: 'white'} 
                     }} />
                     <Link className='link' to='/about'>about</Link>
-                    <Link className='link' to='/login' onClick={e => this.handleLogout(e)}>login</Link>
+                    <Link className='link' to='/login'>login</Link>
                 </nav>
                 </div>
             </header>

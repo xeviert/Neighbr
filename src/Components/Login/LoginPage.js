@@ -12,16 +12,12 @@ export default class LoginPage extends Component {
         }
     }
 
-    handleLoginSuccess = (userId) => {
-        const { location, history } = this.props
-        const destination = (location.state || {}).from || `/`
-        history.push(destination)
-    }
+
 
     render() {
         return (
             <section>
-                <LoginForm onLoginSuccess={this.handleLoginSuccess}></LoginForm>
+                <LoginForm></LoginForm>
             </section>
         )
     }

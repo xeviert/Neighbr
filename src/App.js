@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from './Components/NavBar/NavBar';
 import Footer from './Components/Footer/Footer';
 import LoginPage from './Components/Login/LoginPage';
@@ -22,13 +22,13 @@ class App extends Component {
       address: '',
       email: '',
       favors: [],
-      loggedIn: false
+      loggedIn: false,
+      redirect: null 
     }
   }
 
-
   getUserProfile() {
-        fetch(`${config.API_ENDPOINT}/profile`, {
+    return fetch(`${config.API_ENDPOINT}/profile`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -48,7 +48,7 @@ class App extends Component {
         })
   }
   getAllFavors() {
-        fetch(`${config.API_ENDPOINT}/favors`, {
+    return fetch(`${config.API_ENDPOINT}/favors`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json'
@@ -62,36 +62,43 @@ class App extends Component {
         })
   }  
 
-    handleAddFavor = (favor) => {
-      this.setState({
-          favors: [...this.state.favors, favor]
-      })
-      this.getAllFavors()
-    }
 
 
-    componentDidMount() {
-      this.getAllFavors()      
-      if (TokenService.hasAuthToken()) {
-          return (
-            this.getUserProfile()
-          )
-      }
+  handleAddFavor = (favor) => {
+    this.setState({
+        favors: [...this.state.favors, favor]
+    })
+    this.getAllFavors()
+  }
+
+  componentDidMount() {
+    this.getAllFavors()      
+    if (TokenService.hasAuthToken()) {
+        return (
+          this.getUserProfile()
+        )
     }
+  }
 
   handleUpdateLoggedInOrOut = () => {
-  const jwt = TokenService.getAuthToken()
-  let userId;
-  if (!!jwt) {
-    userId = JSON.parse(window.atob(jwt.split(".")[1])).userId;
-  } else {
-    userId = 0;
-  }
-  this.setState({
-    loggedIn: { loaded: true, userId }
-  })
+
+          const jwt = TokenService.getAuthToken()
+          let userId;
+          if (!!jwt) {
+            userId = JSON.parse(window.atob(jwt.split(".")[1])).userId;
+          } else {
+            userId = 0;
+          }
+          this.setState({
+            loggedIn: { loaded: true }
+          })
   }
 
+  handleLoginSuccess = () => {
+    return this.getUserProfile()
+    .then(() => this.getAllFavors())
+    .then(this.handleUpdateLoggedInOrOut)
+}
 
   renderRoutes() {
     return (
@@ -108,13 +115,18 @@ class App extends Component {
   }
 
   render() {
+
+      if (this.state.redirect) {
+    return <Redirect to={this.state.redirect} />
+  }
+
     const value = {
       first_name: this.state.first_name,
       last_name: this.state.last_name,
       address: this.state.address,
       email: this.state.email,
       favors: this.state.favors,
-      updateLoginStatus: this.handleUpdateLoggedInOrOut,
+      handleLoginSuccess: this.handleLoginSuccess,
       addFavor: this.handleAddFavor,
       getAllFavors: this.getAllFavors,
       getUserProfile: this.getUserProfile
