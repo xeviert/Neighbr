@@ -16,18 +16,18 @@ export default class Profile extends Component {
     
         return (
             <div id="profile-container">
-                <h1 id='profile-header'>Profile</h1>
+                <h1>Profile</h1>
                 <div id='profile'>
-                    <h2 className='fullname'>
+                    <h2 id='fullname'>
                        {this.context.first_name} {this.context.last_name}
                     </h2>
-                    <div className='initials'>
+                    <div id='initials'>
                         {firstNameInit}{lastNameInit}
                     </div>
-                    <div className='address'>
+                    <div id='address'>
                         {address}
                     </div>
-                    <div className='email'>
+                    <div id='email'>
                         {email}
                     </div>
                 </div>

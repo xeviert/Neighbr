@@ -1,5 +1,7 @@
 #about-page {
-    padding: 95px 15px 0px;
+    padding-top: 13vh;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .info {
@@ -13,9 +15,11 @@
     border-width: thin;
     text-align: center;
     border-radius: 8px;
-    padding-bottom: 6px;
-    padding-right: 2px;
+    padding: 1rem 1rem .5vh;
+    margin-bottom: 1rem;
 }
+
+
 
 .phone {
     display: block;
@@ -25,7 +29,7 @@
 
 
 #register-box {
-    margin-bottom: 1px;
+    margin-bottom: 1rem;
     border-color: rgba(255, 255, 255, 0.486);
     background-color: #ffffff9a;
     background: linear-gradient(
@@ -36,12 +40,16 @@
     border-width: thin;
     text-align: center;
     border-radius: 8px;
-    padding-bottom: 10px;
+    padding-bottom: 1rem;
+}
+
+#register-box-h3 {
+    padding: 1rem;
 }
 
 #lp-btn {
-    width: 38%;
-    height: 45px;
+    width: 36%;
+    height: 42px;
     color: #fff !important;
     text-decoration: none;
     background: #144274c7;
@@ -50,7 +58,7 @@
     border: none;
     transition: all 0.3s ease 0s;
     margin: 2px;
-    font-size: 25px
+    font-size: 22px
 }
 
 #lp-btn:hover {
@@ -71,6 +79,17 @@ img {
 }
 
 @media (min-width: 600px) {
+
+    #about-page {
+        width: 70%;
+        padding-top: 16vh;
+    }
+
+    .info {
+        padding-top: 2rem;
+        margin-bottom: 3vh;
+    }
+
     .phone {
         display: flex;
         justify-content: space-evenly;
@@ -86,24 +105,13 @@ img {
         width: auto;
         height: auto;
     }
-   
-    #get-started {
-        font-size: 30px;
-        width: 15%;
-    }
 
-    #about-page {
-        margin-top: 100px;
-    }
-    .info {
-        width: 60%;
-        margin: 0 auto;
-    }
     #register-box{
-        width: 60%;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 10px;
+        margin-bottom: 3vh;
+        padding-top: 1rem;
+        padding-bottom: 3rem;
     }
     #lp-btn {
         width: 30%;

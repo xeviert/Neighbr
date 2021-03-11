@@ -5,14 +5,14 @@
 #register-section {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin: 0 auto;
     width: 85%;
     left: 0;
     right: 0;
 }
 
 input {
-    width: 90%;
+    width: 100%;
     margin-bottom: 2px;
     border-radius: 5px;
     background: linear-gradient(
@@ -70,10 +70,7 @@ h1 {
     #register-section {
         display: flex;
         flex-direction: column;
-        margin: 0 auto;
-        width: 40%;
-        left: 0;
-        right: 0;
+        width: 100%;
     }
     #register-container {
         width: 80%;
@@ -84,7 +81,7 @@ h1 {
     }
     #register-btn {
         font-size: 30px;
-        width: 80%;
+        width: 40%;
         margin: 2 auto 0;
     }
     #register-header {
@@ -93,7 +90,7 @@ h1 {
     }
     
     input {
-        width: 90%;
+        width: 100%;
         border-radius: 5px;
         background: linear-gradient(
             to right bottom,
@@ -104,4 +101,22 @@ h1 {
         height: 40px;
     }
 
+}
+
+@media all and (min-width: 800px) {
+    #register-container {
+        width: 70%;
+    }
+}
+
+@media all and (min-width: 900px) {
+    #register-container {
+        width: 60%;
+    }
+}
+
+@media all and (min-width: 1000px) {
+    #register-container {
+        width: 50%;
+    }
 }

@@ -12,28 +12,24 @@ export default class LandingPage extends Component {
         return (
             <div id='about-page'>
                 <section className='info'>
-                    <div>
                         <h3>Help Your Neighbr</h3>
-                    </div>
                     <p>
                         Neighbr is an online bulletin board specifically for things that your neighbrs need help with. Whether it's help with spring cleaning or someone simply wants company, you can login and check to see what your neighbrs are up to.
                     </p>
                 </section>
 
                 <section className='info'>
-                    <div>
                         <h3>Need Help With Something?</h3>
-                    </div>
                     <p>
                         Sometimes you need an extra set of hands to help you with things around the house. You can decide to post a favor with details on the task. 
                     </p>
                 </section>
                 <section className='info'>
-                        <div>
                             <h3>Check it out!</h3>
-                        </div>
+                        <p>
                             Register to create an account. 
                             This gives access to a list of favors that people in your neighborhood need help with.
+                        </p>
                     </section>
 
                 <section className="phone">
@@ -51,9 +47,9 @@ export default class LandingPage extends Component {
                 <div id='about-page'>
                     <section id='register-box'>
                         <div>
-                            <h3>Help Your Neighbr Now!</h3>
+                            <h3 id='register-box-h3'>Help Your Neighbr Now!</h3>
                         </div>
-                            <Link to='/register'><button id='lp-btn'      value="Get Started">Register</button></Link>
+                            <Link to='/register'><button id='lp-btn' value="Get Started">Register</button></Link>
                             <Link to='/login'><button id='lp-btn' value="Get Started">Login</button></Link>
                     </section>
     

@@ -1,19 +1,23 @@
-.status-update {
-    padding-top: 100px;
+#favor-form {
+    padding-top: 12vh;
     display: flex;
-    justify-content: space-between;
-    text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 2vh;
 }
+
+.initials-sub {
+    font-size: 50px;
+    padding-right: 1vh;
+    padding-left: .5vh;
+}
+
 #status-update-second {
     display: flex;
 }
 
 textarea#description {
     font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif;
-    width: 70%;
+    width: 78%;
     height: 60px;
-    margin-left: 14px;
     margin-top: 3px;
     border-radius: 8px;
     background: linear-gradient(
@@ -22,19 +26,24 @@ textarea#description {
         rgba(255, 255, 255, 0.6)
     );
     border: none;
+    resize: none;
+}
+
+#title, #payment {
+    width: 100%;
 }
 
 #favor-btn {
+    margin-left: .5vh;
     background: #1b5b9e;
     color: #FFF;
     text-align: center;
-    width: 45x;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     font-size: 40px;
     vertical-align: middle;
     overflow: hidden;
-    margin-left: 15px;
     margin-top: 10px;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
     border-bottom: solid 3px #0f3258;
@@ -47,30 +56,36 @@ textarea#description {
     transform: translateY(2px);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
     border-bottom: none;
-    background: #d42853;
+    background: #fcd0db;
 
 }
 
-.initials-sub {
-    font-size: 50px;
-}
 
 @media all and (min-width: 500px) {
-    .status-update {
-        width: 50%;
-        padding-top: 160px;
+    #favor-form {
+        width: 80%;
+        padding-top: 15vh;
         margin: 30px auto;
     }
-    textarea#description {
-        font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif;
-        width: 75%;
-        height: 90px;
-        margin-left: 35px;
+
+    #sub-form {
+        display: flex;
+        margin: 0 auto;
     }
+
     .initials-sub {
         font-size: 90px;
-        margin: 15px auto 0;
+        margin-right: 2vh;
+        margin-top: 2vh;
         font-weight: bold;
+        padding-right: 2vh;
+    }
+
+    textarea#description {
+        font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif;
+        height: 90px;
+        font-size: 25px;
+        width: 85%;
     }
     #favor-btn {
         width: 90px;
@@ -78,7 +93,8 @@ textarea#description {
         font-size: 70px;
     }
 
-    textarea#description{
-        font-size: 25px;
+    #status-update-second {
+        justify-content: space-between;
+        width: 100%;
     }
 }

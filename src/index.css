@@ -7,8 +7,15 @@ body {
   font-size: 18px;
   font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif;
   color: #123C69;
-  background: linear-gradient(90deg, rgba(130,240,212,1) 0%, rgba(130,223,240,1) 18%);
+  background: 
+    linear-gradient(
+      90deg, rgb(155, 255, 230) 
+      0%, rgb(162, 239, 253) 18%);
   line-height: 1.5;
+}
+
+h3 {
+  margin: 0;
 }
 
 @media all and (min-width: 600px) {

@@ -23,6 +23,7 @@ export default class NavBar extends Component {
                     }} />
                     <Link className='link' to='/about'>about</Link>
                     <Link className='link' to='/login'>login</Link>
+                    <Link className='link' to='/register'>register</Link>
                 </nav>
                 </div>
             </header>

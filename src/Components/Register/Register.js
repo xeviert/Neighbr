@@ -34,7 +34,7 @@ export default class Register extends React.Component {
         return (
         <div id="register-container">
             <div id="register-header">
-                <h1>Register for Neighbr</h1>
+                <h1>Register</h1>
             </div>
 
             <section id="register-section">

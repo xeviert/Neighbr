@@ -1,9 +1,9 @@
 .favors-list {
-    margin-bottom: 70px;
+    margin-bottom: 8vh;
 }
 
 @media all and (min-width: 600px) {
     .favors-list {
-        margin-bottom: 150px;
+        margin-bottom: 10vh;
     }
 }

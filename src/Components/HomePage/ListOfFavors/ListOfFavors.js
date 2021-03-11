@@ -6,16 +6,10 @@ import './ListOfFavors.css';
 class ListOfFavors extends Component {
     static contextType = Context; 
 
-    static defaultProps = {
-        match: {
-            params: {},
-        }
-    }
-
-
     render() {
 
-        const { favors } = this.context;
+    const { favors } = this.context;
+    
     return (
         <section className='favors-list'>              
              {favors.map(favor => (
