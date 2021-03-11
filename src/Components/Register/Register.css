@@ -25,7 +25,8 @@ input {
 }
 
 h1 {
-    color: #123C69
+    color: #123C69;
+    font-family: 'Roboto Mono', monospace;
 }
 
 #label-id {
@@ -105,18 +106,18 @@ h1 {
 
 @media all and (min-width: 800px) {
     #register-container {
-        width: 70%;
+        width: 60%;
     }
 }
 
 @media all and (min-width: 900px) {
     #register-container {
-        width: 60%;
+        width: 50%;
     }
 }
 
 @media all and (min-width: 1000px) {
     #register-container {
-        width: 50%;
+        width: 40%;
     }
 }

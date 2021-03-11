@@ -6,9 +6,14 @@ header {
     background-color: #353535;
 }
 
+#desktop-header {
+    margin: 0;
+}
+
 .links {
     float: right;
     margin-bottom: 4px;
+    font-size: 2vh;
 }
 
 .link::after {
@@ -16,9 +21,9 @@ header {
 }
 
 #neighbr {
-    margin-left: 26px;
     margin-top: 4px;
     margin-bottom: 2px;
+    margin-left: 1vh;
     color: #ffe4e4;
 }
 
@@ -56,5 +61,15 @@ header {
     #desktop-header {
         width: 55%;
         margin: 0 auto;
+    }
+
+    #neighbr {
+        margin-left: 0;
+    }
+}
+
+@media all and (min-width: 900px) {
+    #desktop-header {
+        width: 45%;
     }
 }

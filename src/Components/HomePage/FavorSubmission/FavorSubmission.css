@@ -15,7 +15,7 @@
 }
 
 textarea#description {
-    font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     width: 78%;
     height: 60px;
     margin-top: 3px;
@@ -82,7 +82,7 @@ textarea#description {
     }
 
     textarea#description {
-        font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif;
+        font-family: 'Open Sans', sans-serif;
         height: 90px;
         font-size: 25px;
         width: 85%;

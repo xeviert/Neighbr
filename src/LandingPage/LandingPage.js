@@ -75,8 +75,10 @@ export default class LandingPage extends Component {
                         <div>
                             <h3>Check it out!</h3>
                         </div>
+                        <p>
                             Register to create an account. 
                             This gives access to a list of favors that people in your neighborhood need help with.
+                        </p>
                     </section>
     
                     <section className="phone">

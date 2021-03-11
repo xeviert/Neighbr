@@ -5,7 +5,7 @@
 
 body {
   font-size: 18px;
-  font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif;
+  font-family: 'Open Sans', sans-serif;  
   color: #123C69;
   background: 
     linear-gradient(
@@ -16,6 +16,8 @@ body {
 
 h3 {
   margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 22px;
 }
 
 @media all and (min-width: 600px) {
@@ -26,6 +28,9 @@ h3 {
   }
   input[type="text"] {
     font-size: 28px;
+  }
+  h3 {
+    font-size: 45px;
   }
 
 }
