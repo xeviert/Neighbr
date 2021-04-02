@@ -1,15 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowswerRouter as Router } from 'react-router-dom'
-import App from './App';
+const App = require('./App');
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(
-    <Router>
-      <App />
-    </Router>,
-    div
-  );
-  ReactDOM.unmountComponentAtNode(div)
-});
+describe('App Component', () => {
+    test('render', () => {
+      const { wrapper } = setup()
+      expect(wrapper).toMatchSnapshot()
+    })
+  });
