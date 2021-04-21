@@ -1,8 +1,7 @@
 const App = require('./App');
 
-describe('App Component', () => {
-    test('render', () => {
-      const { wrapper } = setup()
-      expect(wrapper).toMatchSnapshot()
-    })
-  });
+it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+    ReactDOM.unmountComponentAtNode(div);
+})
