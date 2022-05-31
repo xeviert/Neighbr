@@ -12,8 +12,7 @@ import TokenService from './Services/token-service';
 import Context from './Context';
 import config from './config';
 
-
-class App extends Component { 
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,90 +22,87 @@ class App extends Component {
       email: '',
       favors: [],
       loggedIn: false,
-      redirect: null 
-    }
+      redirect: null,
+    };
   }
 
   getUserProfile() {
     return fetch(`${config.API_ENDPOINT}/profile`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                Authorization: `Bearer ${TokenService.getAuthToken()}`
-            }
-        })
-        .then(res => {
-            return res.json()
-        })
-        .then(user => {
-          this.setState({
-            first_name: user[0].first_name,
-            last_name: user[0].last_name,
-            address: user[0].address,
-            email: user[0].email,
-            })
-        })
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((user) => {
+        this.setState({
+          first_name: user[0].first_name,
+          last_name: user[0].last_name,
+          address: user[0].address,
+          email: user[0].email,
+        });
+      });
   }
+  
   getAllFavors() {
     return fetch(`${config.API_ENDPOINT}/favors`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json'
-            }
-        })
-        .then(res => {  
-            return res.json()
-        })
-        .then(favors => {
-            this.setState({favors})
-        })
-  }  
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((favors) => {
+        this.setState({ favors });
+      });
+  }
 
   handleAddFavor = (favor) => {
     this.setState({
-        favors: [...this.state.favors, favor]
-    })
-    this.getAllFavors()
-  }
+      favors: [...this.state.favors, favor],
+    });
+    this.getAllFavors();
+  };
 
   componentDidMount() {
-    this.getAllFavors()      
+    this.getAllFavors();
     if (TokenService.hasAuthToken()) {
-        return (
-          this.getUserProfile()
-        )
+      return this.getUserProfile();
     }
   }
 
   handleLoginSuccess = () => {
-    return this.getUserProfile()
-    .then(() => this.getAllFavors())
-  }
+    return this.getUserProfile().then(() => this.getAllFavors());
+  };
 
   handleLogout = (e) => {
     TokenService.clearAuthToken();
-    this.setState({ loggedIn: true })
-  }
+    this.setState({ loggedIn: true });
+  };
 
   renderRoutes() {
     return (
       <>
         <Switch>
-            <Route path="/about" component={LandingPage} />
-            <Route path="/register" component={Register} />
-            <Route path="/login"  component={LoginPage} />
-            <PrivateRoute path="/" exact component={HomePage} />
-            <PrivateRoute path="/profile" component={Profile} />
-        </Switch>      
+          <Route path='/about' component={LandingPage} />
+          <Route path='/register' component={Register} />
+          <Route path='/login' component={LoginPage} />
+          <PrivateRoute path='/' exact component={HomePage} />
+          <PrivateRoute path='/profile' component={Profile} />
+        </Switch>
       </>
-    )
+    );
   }
 
   render() {
-
-      if (this.state.redirect) {
-    return <Redirect to={this.state.redirect} />
-  }
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    }
 
     const value = {
       first_name: this.state.first_name,
@@ -118,17 +114,17 @@ class App extends Component {
       handleLoginSuccess: this.handleLoginSuccess,
       addFavor: this.handleAddFavor,
       getAllFavors: this.getAllFavors,
-      getUserProfile: this.getUserProfile
-    }
+      getUserProfile: this.getUserProfile,
+    };
 
-  return (
-    <Context.Provider value={value}>
-      <NavBar />
-          <main className='App'>{this.renderRoutes()}</main>
-      <Footer />
-    </Context.Provider>
-  );
-}
+    return (
+      <Context.Provider value={value}>
+        <NavBar />
+        <main className='App'>{this.renderRoutes()}</main>
+        <Footer />
+      </Context.Provider>
+    );
+  }
 }
 
 export default App;

@@ -3,20 +3,20 @@ import LoginForm from './LoginForm';
 import Context from '../../Context';
 
 export default class LoginPage extends Component {
-    static contextType = Context
-    
-    static defaultProps = {
-        location: {},
-        history: {
-            push: () => {},
-        }
-    }
+  static contextType = Context;
 
-    render() {
-        return (
-            <section>
-                <LoginForm history={this.props.history}></LoginForm>
-            </section>
-        )
-    }
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => {},
+    },
+  };
+
+  render() {
+    return (
+      <section>
+        <LoginForm history={this.props.history}></LoginForm>
+      </section>
+    );
+  }
 }

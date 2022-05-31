@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import config from "../../../config";
-import TokenService from "../../../Services/token-service";
-import Context from "../../../Context";
-import "./FavorSubmission.css";
+import React, { Component } from 'react';
+import config from '../../../config';
+import TokenService from '../../../Services/token-service';
+import Context from '../../../Context';
+import './FavorSubmission.css';
 
 class FavorSubmission extends Component {
   static contextType = Context;
 
   state = {
     error: null,
-    title: "",
-    payment: "",
-    description: "",
+    title: '',
+    payment: '',
+    description: '',
   };
 
   handleChange = (e) => {
@@ -32,17 +32,17 @@ class FavorSubmission extends Component {
     };
 
     fetch(`${config.API_ENDPOINT}/favors`, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify(favor),
       headers: {
-        "content-type": "application/json",
+        'content-type': 'application/json',
         authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then((res) => res.json())
       .then((favor) => {
         this.context.addFavor(favor);
-        this.setState({ title: "", payment: "", description: "" });
+        this.setState({ title: '', payment: '', description: '' });
       })
       .catch((e) => {
         this.setState({ error: e.message });
