@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
+import React, { useContext, useState } from 'react';
 import config from '../../../config';
 import TokenService from '../../../Services/token-service';
-import Context from '../../../Context';
+import AppContext from '../../../Context';
+
 import './FavorSubmission.css';
 
-class FavorSubmission extends Component {
-  static contextType = Context;
+function FavorSubmission() {
+  const context = useContext(AppContext);
 
-  state = {
-    error: null,
+  const [inputField, setInputField] = useState({
     title: '',
     payment: '',
     description: '',
+  });
+  const [error, setError] = useState(null);
+
+  const handleChange = (e) => {
+    setInputField({ [e.target.name]: e.target.value });
   };
 
-  handleChange = (e) => {
-    this.setState({ value: e.target.value.substr(0, 150) });
-  };
+  // handleChange = (e) =>  this.setState({ value: e.target.value.substr(0, 150) });
 
-  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    this.setState({ error: null });
 
     const favor = {
       title: this.state.title,
@@ -41,72 +41,73 @@ class FavorSubmission extends Component {
     })
       .then((res) => res.json())
       .then((favor) => {
-        this.context.addFavor(favor);
-        this.setState({ title: '', payment: '', description: '' });
+        context.addFavor(favor);
+        setInputField({
+          title: '',
+          payment: '',
+          description: '',
+        });
       })
-      .catch((e) => {
-        this.setState({ error: e.message });
+      .catch((error) => {
+        setError(error);
       });
   };
 
-  render() {
-    const { error } = this.state;
-    const { first_name, last_name } = this.context;
+  const { first_name, last_name } = context;
 
-    return (
-      <div id='favor-form'>
-        <div id='sub-form'>
-          <div className='initials-sub'>
-            {first_name.charAt(0)}
-            {last_name.charAt(0)}
-          </div>
-
-          <form onSubmit={this.handleSubmit}>
-            {error && <p>{error}</p>}
-
-            <input
-              id='title'
-              type='text'
-              placeholder='Favor Title'
-              value={this.state.title}
-              name='title'
-              maxLength='20'
-              onChange={this.handleChange}
-              required
-            ></input>
-
-            <input
-              id='payment'
-              type='text'
-              placeholder='Payment $$'
-              value={this.state.payment}
-              name='payment'
-              maxLength='20'
-              onChange={this.handleChange}
-              required
-            ></input>
-
-            <div id='status-update-second'>
-              <textarea
-                id='description'
-                placeholder='Description'
-                value={this.state.description}
-                name='description'
-                maxLength='300'
-                type='text'
-                onChange={this.handleChange}
-                required
-              ></textarea>
-
-              <button type='submit' id='favor-btn'>
-                +
-              </button>
-            </div>
-          </form>
+  return (
+    <div id='favor-form'>
+      <div id='sub-form'>
+        <div className='initials-sub'>
+          {first_name.charAt(0)}
+          {last_name.charAt(0)}
         </div>
+
+        <form onSubmit={handleSubmit}>
+          {error && <p>{error}</p>}
+
+          <input
+            id='title'
+            type='text'
+            placeholder='Favor Title'
+            value={inputField.title}
+            name='title'
+            maxLength='20'
+            onChange={handleChange}
+            required
+          ></input>
+
+          <input
+            id='payment'
+            type='text'
+            placeholder='Payment $$'
+            value={inputField.payment}
+            name='payment'
+            maxLength='20'
+            onChange={handleChange}
+            required
+          ></input>
+
+          <div id='status-update-second'>
+            <textarea
+              id='description'
+              placeholder='Description'
+              value={inputField.description}
+              name='description'
+              maxLength='300'
+              type='text'
+              onChange={handleChange}
+              required
+            ></textarea>
+
+            <button type='submit' id='favor-btn'>
+              +
+            </button>
+          </div>
+        </form>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default FavorSubmission;
