@@ -1,30 +1,28 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
+import AppContext from '../../../Context';
 import FavorItem from '../FavorItem/FavorItem';
-import Context from '../../../Context';
+
 import './ListOfFavors.css';
 
-class ListOfFavors extends Component {
-    static contextType = Context; 
+function ListOfFavors() {
+  const context = useContext(AppContext);
+  const { favors } = context;
 
-    render() {
-
-    const { favors } = this.context;
-    
-    return (
-        <section className='favors-list'>              
-             {favors.map(favor => (
-                    <FavorItem 
-                        title={favor.title} 
-                        payment={favor.payment} 
-                        description={favor.description}
-                        posted={favor.posted} 
-                        first_name={favor.first_name} 
-                        last_name={favor.last_name} 
-                        key={favor.favor_id}
-                    />                   
-                ))}                
-        </section>
-    )}
+  return (
+    <section className='favors-list'>
+      {favors.map((favor) => (
+        <FavorItem
+          title={favor.title}
+          payment={favor.payment}
+          description={favor.description}
+          posted={favor.posted}
+          first_name={favor.first_name}
+          last_name={favor.last_name}
+          key={favor.favor_id}
+        />
+      ))}
+    </section>
+  );
 }
 
 export default ListOfFavors;
