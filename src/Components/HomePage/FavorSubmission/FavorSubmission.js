@@ -25,9 +25,9 @@ function FavorSubmission() {
     e.preventDefault();
 
     const favor = {
-      title: this.state.title,
-      payment: this.state.payment,
-      description: this.state.description,
+      title: inputField.title,
+      payment: inputField.payment,
+      description: inputField.description,
       posted: new Date(),
     };
 
