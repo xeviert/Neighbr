@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import AuthApiService from '../../Services/auth-api-service';
 import './Register.css';
 
 export default function Register() {
   const [error, setError] = useState(null);
+  let history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const { first_name, last_name, address, email, password, confirmPassword } =
       e.target;
-    this.setState({ error: null });
+    setError({ error: null });
 
     if (password.value !== confirmPassword.value) {
-      return this.setState({ error: 'Passwords do not match' });
+      return setError({ error: 'Passwords do not match' });
     }
     AuthApiService.postUser({
       first_name: first_name.value,
@@ -23,11 +25,11 @@ export default function Register() {
       password: password.value,
     })
       .then((res) => res.json())
-    //   .then((user) => {
-    //     this.props.history.push('/login');
-    //   })
+      .then(() => {
+        history.push(`/`);
+      })
       .catch((error) => {
-        setError({ error });
+        setError(error);
       });
   };
 
@@ -39,7 +41,7 @@ export default function Register() {
 
       <section id='register-section'>
         <form id='register-form' onSubmit={handleSubmit}>
-          {this.state.error && <p className='error'>{this.state.error}</p>}
+        <div role='alert'>{error && <p>{error}</p>}</div>
           <label for='first-name' id='label-id'>
             First name:
           </label>

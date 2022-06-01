@@ -1,10 +1,14 @@
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import AppContext from '../../Context';
 import TokenService from '../../Services/token-service';
+import { Link } from 'react-router-dom';
 import { Style } from 'radium';
 
 import './NavBar.css';
 
 export default function NavBar() {
+  const contextFunctions = useContext(AppContext);
+
   const renderLoginLink = () => {
     return (
       <header>
@@ -58,7 +62,7 @@ export default function NavBar() {
             <Link
               className='link'
               to='/login'
-              onClick={(e) => this.context.handleLogout(e)}
+              onClick={(e) => contextFunctions.handleLogout(e)}
             >
               logout
             </Link>
