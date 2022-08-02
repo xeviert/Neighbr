@@ -3,7 +3,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #353535;
+    background-color: #787878;
 }
 
 #desktop-header {
@@ -24,7 +24,7 @@ header {
     margin-top: 4px;
     margin-bottom: 2px;
     margin-left: 1vh;
-    color: #ffe4e4;
+    color: #d8bb7c;
 }
 
 .link:before, .link:after{

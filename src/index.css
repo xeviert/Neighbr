@@ -6,11 +6,11 @@
 body {
   font-size: 18px;
   font-family: 'Open Sans', sans-serif;  
-  color: #123C69;
+  color: #103256;
   background: 
     linear-gradient(
-      90deg, rgb(208, 255, 243) 
-      0%, rgb(211, 246, 252) 18%);
+      90deg, rgb(216, 254, 245) 
+      0%, rgb(227, 251, 255) 18%);
   line-height: 1.5;
 }
 
