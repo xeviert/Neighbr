@@ -24,13 +24,13 @@ h3 {
 
 
   body {
-    font-size: 35px;
+    font-size: 24px;
   }
   input[type="text"] {
-    font-size: 28px;
+    font-size: 20px;
   }
   h3 {
-    font-size: 45px;
+    font-size: 35px;
   }
 
 }

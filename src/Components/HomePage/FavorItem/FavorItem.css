@@ -28,20 +28,20 @@
 }
 
 .payment-info {
-    font-size: 16px;
+    font-size: 12px;
     margin-bottom: 2px;
 }
 
 .time-posted {
     color: rgba(0, 5, 54, 0.555);
     font-style: italic;
-    font-size: 14px;
+    font-size: 8px;
 }
 
 @media all and (min-width: 600px) {
     .favor-item {
         margin: 0 auto 8px;
-        width: 75%;
+        width: 50%;
         padding-right: .3vh;
     }
     .favor-item-initials {
@@ -50,14 +50,14 @@
         margin-left: 3vh;
     }
     .payment-info {
-        font-size: 26px;
+        font-size: 16px;
         margin-bottom: 2px;
     }
     
     .time-posted {
         color: rgba(0, 5, 54, 0.555);
         font-style: italic;
-        font-size: 18px;
+        font-size: 14px;
     }
 }
 

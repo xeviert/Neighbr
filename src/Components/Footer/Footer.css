@@ -12,7 +12,7 @@ footer {
 }
 
 #copyright {
-  font-size: 10px;
+  font-size: 6px;
   margin: .5vh;
 }
 
@@ -25,11 +25,11 @@ footer {
 @media all and (min-width: 600px) {
 
   #neighbr-footer {
-    font-size: 30px;
+    font-size: 15px;
     font-weight: bold;
   }
   #copyright {
-    font-size: 22px;
+    font-size: 10px;
   }
   footer {
     line-height: 1;

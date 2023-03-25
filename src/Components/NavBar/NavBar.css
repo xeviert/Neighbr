@@ -13,7 +13,7 @@ header {
 .links {
     float: right;
     margin-bottom: 4px;
-    font-size: 2vh;
+    font-size: 18px;
 }
 
 .link::after {
