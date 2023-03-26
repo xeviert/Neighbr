@@ -42,28 +42,28 @@ export default function Register() {
       <section id='register-section'>
         <form id='register-form' onSubmit={handleSubmit}>
         <div role='alert'>{error && <p>{error}</p>}</div>
-          <label for='first-name' id='label-id'>
+          <label htmlFor='first-name' id='label-id'>
             First name:
           </label>
           <input type='text' id='first-name' name='first_name' required></input>
           <br />
-          <label for='last-name' id='label-id'>
+          <label htmlFor='last-name' id='label-id'>
             Last name:
           </label>
           <input type='text' id='last-name' name='last_name' required></input>
-          <label for='address' id='label-id'>
+          <label htmlFor='address' id='label-id'>
             Address:
           </label>
           <input type='text' id='address' name='address' required></input>
-          <label for='email' id='label-id'>
+          <label htmlFor='email' id='label-id'>
             Email Address:
           </label>
           <input type='text' id='email' name='email' required></input>
-          <label for='password' id='label-id'>
+          <label htmlFor='password' id='label-id'>
             Password:
           </label>
           <input type='password' id='password' name='password' required></input>
-          <label for='confirm-pw' id='label-id'>
+          <label htmlFor='confirm-pw' id='label-id'>
             Confirm Password:
           </label>
           <input

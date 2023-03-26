@@ -42,11 +42,11 @@ export default function Login() {
         <form id='login-form' onSubmit={handleLogin}>
           <div role='alert'>{error && <p>{error}</p>}</div>
 
-          <label for='email' id='label-id'>
+          <label htmlFor='email' id='label-id'>
             Email Address:
           </label>
           <input type='text' id='email' name='email' required></input>
-          <label for='password' id='label-id'>
+          <label htmlFor='password' id='label-id'>
             Password:
           </label>
           <input type='password' id='password' name='password' required></input>
