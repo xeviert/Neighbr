@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import NavBar from './Components/NavBar/NavBar';
 import Footer from './Components/Footer/Footer';
 import HomePage from './Components/HomePage/HomePage';
@@ -13,13 +13,13 @@ export function App() {
   return (
     <>
       <NavBar />
-      <Switch>
-        <Route path='/about' component={LandingPage} />
-        <Route path='/register' component={Register} />
-        <Route path='/login' component={Login} />
-        <PrivateRoute path='/' exact component={HomePage} />
-        <PrivateRoute path='/profile' component={Profile} />
-      </Switch>
+      <Routes>
+        <Route path='/about' element={<LandingPage />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+        <PrivateRoute path='/' exact element={<HomePage />} />
+        <PrivateRoute path='/profile' element={<Profile />} />
+      </Routes>
       <Footer />
     </>
   );

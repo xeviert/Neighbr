@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AuthApiService from '../../Services/auth-api-service';
 import './Register.css';
 
 export default function Register() {
   const [error, setError] = useState(null);
-  let history = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ export default function Register() {
     })
       .then((res) => res.json())
       .then(() => {
-        history.push(`/`);
+        navigate("/");
       })
       .catch((error) => {
         setError(error);

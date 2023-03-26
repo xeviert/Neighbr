@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import config from './config';
 import TokenService from './Services/token-service';
 
@@ -18,7 +18,7 @@ export class AppProvider extends Component {
       email: '',
       favors: [],
       loggedIn: false,
-      redirect: null,
+      navigate: null,
     };
   }
 
@@ -95,8 +95,8 @@ export class AppProvider extends Component {
       getAllFavors: this.getAllFavors,
       getUserProfile: this.getUserProfile,
     };
-    if (this.state.redirect) {
-      return <Redirect to={this.state.redirect} />;
+    if (this.state.navigate) {
+      return <Navigate to={this.state.navigate} />;
     }
     return (
       <AppContext.Provider value={value}>

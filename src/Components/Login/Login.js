@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import AppContext from '../../Context';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import TokenService from '../../Services/token-service';
 import AuthApiService from '../../Services/auth-api-service';
 
@@ -9,7 +9,7 @@ import './LoginForm.css';
 export default function Login() {
   const contextFunctions = useContext(AppContext);
   const [error, setError] = useState(null);
-  let history = useHistory();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ export default function Login() {
         TokenService.saveAuthToken(res.authToken);
         const jwt = res.authToken.split('.')[1];
         const userId = JSON.parse(window.atob(jwt)).user_id;
-        history.push(`/`);
+        navigate(`/`);
         return contextFunctions.handleLoginSuccess(userId);
       })
       .catch((error) => {
