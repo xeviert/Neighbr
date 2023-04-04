@@ -1,26 +1,24 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import TokenService from '../Services/token-service';
+import AppContext from '../Context';
 
-export default function PrivateRoute({ component, ...props }) {
-  const Component = component;
+const PrivateRoute = () => {
+
   return (
-    <Routes>
-      <Route
-        {...props}
-        render={(componentProps) => {
-          return TokenService.hasAuthToken() ? (
-            <Component {...componentProps} />
-          ) : (
+    <AppContext.Consumer>
+        {(appContext) =>
+            TokenService.hasAuthToken() ? (
+              <Outlet />
+            ) : (
             <Navigate
               to={{
-                pathname: '/about',
-                state: { from: componentProps.location },
+                pathname: '/about'
               }}
             />
-          );
-        }}
-      />
-    </Routes>
+          )}
+    </AppContext.Consumer>
   );
 }
+
+export default PrivateRoute;

@@ -41,7 +41,6 @@ export class AppProvider extends Component {
         return res.json();
       })
       .then((user) => {
-        // console.log(user)
         this.setState({
           first_name: user[0].first_name,
           last_name: user[0].last_name,

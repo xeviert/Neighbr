@@ -10,6 +10,7 @@ import LandingPage from './LandingPage/LandingPage';
 import PrivateRoute from './Utils/PrivateRoute';
 
 export function App() {
+
   return (
     <>
       <NavBar />
@@ -17,8 +18,12 @@ export function App() {
         <Route path='/about' element={<LandingPage />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
-        <PrivateRoute path='/' exact element={<HomePage />} />
-        <PrivateRoute path='/profile' element={<Profile />} />
+        <Route exact path='/' element={<PrivateRoute />}>
+          <Route exact path='/' element={<HomePage />} />
+        </Route>
+        <Route exact path='/profile' element={<PrivateRoute />}>
+          <Route exact path='/profile' element={<Profile />} />
+        </Route>
       </Routes>
       <Footer />
     </>
