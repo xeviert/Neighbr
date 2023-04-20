@@ -19,8 +19,6 @@ function FavorSubmission() {
     setInputField({ [e.target.name]: e.target.value });
   };
 
-  // handleChange = (e) =>  this.setState({ value: e.target.value.substr(0, 150) });
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
