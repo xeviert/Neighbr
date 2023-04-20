@@ -2,16 +2,24 @@ import React, { Component } from 'react';
 import { Navigate } from 'react-router-dom';
 import config from './config';
 import TokenService from './Services/token-service';
+import IdleService from './Services/idle-service';
+import AuthApiService from './Services/auth-api-service';
 
 const AppContext = React.createContext({
-  user: [],
+  user: {},
   favors: [],
+  error: null,
+  setError: () => {},
+  clearError: () => {},
+  setUser: () => {},
+  processLogin: () => {},
+  processLogout: () => {},
 });
 
 export class AppProvider extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+     const state = {
       first_name: '',
       last_name: '',
       address: '',
@@ -19,14 +27,45 @@ export class AppProvider extends Component {
       favors: [],
       loggedIn: false,
       navigate: null,
-    };
+      error: null
+    }
+
+    const jwtPayload = TokenService.parseAuthToken()
+
+    if (jwtPayload)
+     state.user = {
+      id: jwtPayload.user_id,
+      sub: jwtPayload.email,
+     }
+
+     this.state = state;
+     IdleService.setIdleCallback(this.logoutBecauseIdle)
   }
 
   componentDidMount() {
-    this.getAllFavors();
     if (TokenService.hasAuthToken()) {
-      return this.getUserProfile();
+        this.fetchRefreshToken()
+        this.getUserProfile()
+        this.getAllFavors()
     }
+  }
+
+  componentWillUnmount() {
+    IdleService.unRegisterIdleResets()
+    TokenService.clearCallbackBeforeExpiry()
+  }
+
+  setError = error => {
+    console.error(error)
+    this.setState({ error })
+  }
+
+  clearError = () => {
+    this.setState({ error: null })
+  }
+
+  setUser = user => {
+    this.setState({ user })
   }
 
   getUserProfile() {
@@ -72,14 +111,46 @@ export class AppProvider extends Component {
     this.getAllFavors();
   };
 
-  handleLoginSuccess = () => {
-    return this.getUserProfile().then(() => this.getAllFavors());
+  processLogin = async authToken => {
+    TokenService.saveAuthToken(authToken)
+    const jwtPayload = TokenService.parseAuthToken()
+    this.setUser({
+      id: jwtPayload.user_id,
+      sub: jwtPayload.email,
+    })
+    IdleService.regiserIdleTimerResets()
+    TokenService.queueCallbackBeforeExpiry(() => {
+      this.fetchRefreshToken()
+    })
+    await this.getUserProfile().then(() => this.getAllFavors());
   };
 
-  handleLogout = (e) => {
-    TokenService.clearAuthToken();
-    this.setState({ loggedIn: true });
-  };
+  processLogout = () => {
+    TokenService.clearAuthToken()
+    TokenService.clearCallbackBeforeExpiry()
+    IdleService.unRegisterIdleResets()
+    this.setUser({})
+  }
+
+  logoutBecauseIdle = () => {
+    TokenService.clearAuthToken()
+    TokenService.clearCallbackBeforeExpiry()
+    IdleService.unRegisterIdleResets()
+    this.setUser({ idle: true })
+  }
+
+  fetchRefreshToken = () => {
+    AuthApiService.refreshToken()
+      .then(res => {
+        TokenService.saveAuthToken(res.authToken)
+        TokenService.queueCallbackBeforeExpiry(() => {
+          this.fetchRefreshToken()
+        })
+      })
+      .catch(err => {
+        this.setError(err)
+      })
+  }
 
   render() {
     const value = {
@@ -89,10 +160,14 @@ export class AppProvider extends Component {
       email: this.state.email,
       favors: this.state.favors,
       handleLogout: this.handleLogout,
-      handleLoginSuccess: this.handleLoginSuccess,
+      processLogin: this.processLogin,
       addFavor: this.handleAddFavor,
       getAllFavors: this.getAllFavors,
       getUserProfile: this.getUserProfile,
+      setError: this.setError,
+      clearError: this.clearError,
+      setUser: this.setUser,
+      processLogout: this.processLogout
     };
     if (this.state.navigate) {
       return <Navigate to={this.state.navigate} />;

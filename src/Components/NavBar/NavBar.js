@@ -62,7 +62,7 @@ export default function NavBar() {
             <Link
               className='link'
               to='/login'
-              onClick={(e) => contextFunctions.handleLogout(e)}
+              onClick={(e) => contextFunctions.processLogout(e)}
             >
               logout
             </Link>

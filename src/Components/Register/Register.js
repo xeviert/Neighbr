@@ -8,7 +8,7 @@ export default function Register() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { first_name, last_name, address, email, password, confirmPassword } =
       e.target;
@@ -17,7 +17,7 @@ export default function Register() {
     if (password.value !== confirmPassword.value) {
       return setError({ error: 'Passwords do not match' });
     }
-    AuthApiService.postUser({
+    await AuthApiService.postUser({
       first_name: first_name.value,
       last_name: last_name.value,
       address: address.value,
@@ -28,8 +28,8 @@ export default function Register() {
       .then(() => {
         navigate("/");
       })
-      .catch((error) => {
-        setError(error);
+      .catch((res) => {
+        setError({ error: res.error });
       });
   };
 
@@ -41,7 +41,7 @@ export default function Register() {
 
       <section id='register-section'>
         <form id='register-form' onSubmit={handleSubmit}>
-        <div role='alert'>{error && <p>{error}</p>}</div>
+        <div role='alert'>{error && <p>{error.error}</p>}</div>
           <label htmlFor='first-name' id='label-id'>
             First name:
           </label>
