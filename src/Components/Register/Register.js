@@ -33,51 +33,50 @@ export default function Register() {
   };
 
   return (
-    <div id='register-container'>
-      <div id='register-header'>
+    <div>
+      <div>
         <h1>Register</h1>
       </div>
 
-      <section id='register-section'>
-        <form id='register-form' onSubmit={handleSubmit}>
+      <section>
+        <form onSubmit={handleSubmit}>
         <div role='alert'>{error && <p>{error.error}</p>}</div>
-          <label htmlFor='first-name' id='label-id'>
+          <label htmlFor='first-name'>
             First name:
           </label>
-          <input type='text' id='first-name' name='first_name' required></input>
+          <input type='text' name='first_name' required></input>
           <br />
-          <label htmlFor='last-name' id='label-id'>
+          <label htmlFor='last-name'>
             Last name:
           </label>
-          <input type='text' id='last-name' name='last_name' required></input>
-          <label htmlFor='address' id='label-id'>
+          <input type='text' name='last_name' required></input>
+          <label htmlFor='address'>
             Address:
           </label>
-          <input type='text' id='address' name='address' required></input>
-          <label htmlFor='email' id='label-id'>
+          <input type='text' name='address' required></input>
+          <label htmlFor='email'>
             Email Address:
           </label>
-          <input type='text' id='email' name='email' required></input>
-          <label htmlFor='password' id='label-id'>
+          <input type='text' name='email' required></input>
+          <label htmlFor='password'>
             Password:
           </label>
-          <input type='password' id='password' name='password' required></input>
-          <label htmlFor='confirm-pw' id='label-id'>
+          <input type='password' name='password' required></input>
+          <label htmlFor='confirm-pw'>
             Confirm Password:
           </label>
           <input
             type='password'
-            id='confirm-pw'
             name='confirmPassword'
             required
           ></input>
-          <button id='register-btn' type='submit'>
+          <button type='submit'>
             Register
           </button>
         </form>
       </section>
 
-      <div id='login-section'>
+      <div>
         <p>Already have an account?</p>
         <Link to='/login'>
           <p>

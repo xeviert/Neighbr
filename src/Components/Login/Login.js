@@ -29,21 +29,21 @@ export default function LoginForm() {
   };
 
   return (
-    <div id='login-container'>
-      <section id='login-section'>
-        <form id='login-form' onSubmit={handleLogin}>
+    <div>
+      <section>
+        <form onSubmit={handleLogin}>
           <div role='alert'>{error && <p>{error.error}</p>}</div>
 
-          <label htmlFor='email' id='label-id'>
+          <label htmlFor='email'>
             Email Address:
           </label>
-          <input type='email' id='email' name='email' required></input>
-          <label htmlFor='password' id='label-id'>
+          <input type='email' name='email' required></input>
+          <label htmlFor='password'>
             Password:
           </label>
-          <input type='password' id='password' name='password' required></input>
+          <input type='password' name='password' required></input>
 
-          <button id='login-btn' type='submit'>
+          <button type='submit'>
             Login
           </button>
         </form>

@@ -10,18 +10,18 @@ export default function Profile() {
   const email = userInfo.email;
 
   return (
-    <div id='profile-container'>
+    <div>
       <h1>Profile</h1>
-      <div id='profile'>
-        <h2 id='fullname'>
+      <div>
+        <h2>
           {userInfo.first_name} {userInfo.last_name}
         </h2>
-        <div id='initials'>
+        <div>
           {firstNameInit}
           {lastNameInit}
         </div>
-        <div id='address'>{address}</div>
-        <div id='email'>{email}</div>
+        <div>{address}</div>
+        <div>{email}</div>
       </div>
     </div>
   );

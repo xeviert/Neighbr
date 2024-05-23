@@ -10,7 +10,7 @@ export default function LoginRoute() {
     };
 
     return (
-        <section id='login-page'>
+        <section>
           <h2>Login</h2>
           <div>
             <LoginForm onLoginSuccess={handleLoginSuccess} />

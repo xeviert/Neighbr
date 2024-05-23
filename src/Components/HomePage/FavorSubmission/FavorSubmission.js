@@ -63,7 +63,6 @@ function FavorSubmission() {
           {error && <p>{error}</p>}
 
           <input
-            id='title'
             type='text'
             placeholder='Favor Title'
             value={inputField.title}
@@ -74,7 +73,6 @@ function FavorSubmission() {
           ></input>
 
           <input
-            id='payment'
             type='text'
             placeholder='Payment $$'
             value={inputField.payment}
@@ -84,9 +82,8 @@ function FavorSubmission() {
             required
           ></input>
 
-          <div id='status-update-second'>
+          <div>
             <textarea
-              id='description'
               placeholder='Description'
               value={inputField.description}
               name='description'
@@ -96,7 +93,7 @@ function FavorSubmission() {
               required
             ></textarea>
 
-            <button type='submit' id='favor-btn'>
+            <button type='submit'>
               +
             </button>
           </div>

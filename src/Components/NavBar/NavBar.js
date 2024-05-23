@@ -10,8 +10,8 @@ export default function NavBar() {
   const renderLoginLink = () => {
     return (
       <header>
-        <div id='desktop-header'>
-          <h1 id='neighbr'>Neighbr</h1>
+        <div>
+          <h1>Neighbr</h1>
           <nav >
             <Style
               scopeSelector='.links'
@@ -38,8 +38,8 @@ export default function NavBar() {
   const renderLogoutLink = () => {
     return (
       <header>
-        <div id='desktop-header'>
-          <h1 id='neighbr'>Neighbr</h1>
+        <div>
+          <h1>Neighbr</h1>
           <nav >
             <Style
               scopeSelector='.links'

@@ -4,7 +4,7 @@ import TokenService from '../Services/token-service';
 export default function LandingPage() {
   const renderLoggedOutPage = () => {
     return (
-      <div id='about-page'>
+      <div>
         <section>
           <h3>Help Your Neighbr</h3>
           <p>
@@ -54,18 +54,18 @@ export default function LandingPage() {
 
   const renderLoggedInPage = () => {
     return (
-      <div id='about-page'>
-        <section id='register-box'>
+      <div>
+        <section>
           <div>
-            <h3 id='register-box-h3'>Help Your Neighbr Now!</h3>
+            <h3>Help Your Neighbr Now!</h3>
           </div>
           <Link to='/register'>
-            <button id='lp-btn' value='Get Started'>
+            <button value='Get Started'>
               Register
             </button>
           </Link>
           <Link to='/login'>
-            <button id='lp-btn' value='Get Started'>
+            <button value='Get Started'>
               Login
             </button>
           </Link>
