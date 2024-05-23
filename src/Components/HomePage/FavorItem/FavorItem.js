@@ -1,8 +1,6 @@
 import React from 'react';
 import Moment from 'moment';
 
-import './FavorItem.css';
-
 function FavorItem(props) {
   const first = props.first_name.charAt(0);
   const last = props.last_name.charAt(0);

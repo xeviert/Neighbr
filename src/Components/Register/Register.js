@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import AuthApiService from '../../Services/auth-api-service';
-import './Register.css';
 
 export default function Register() {
   const [error, setError] = useState(null);

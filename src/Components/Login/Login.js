@@ -3,8 +3,6 @@ import AppContext from '../../Context';
 import { useNavigate } from 'react-router-dom';
 import AuthApiService from '../../Services/auth-api-service';
 
-import './LoginForm.css';
-
 export default function LoginForm() {
   const [error, setError] = useState(null);
   const context = useContext(AppContext);

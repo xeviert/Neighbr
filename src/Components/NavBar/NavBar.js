@@ -4,8 +4,6 @@ import TokenService from '../../Services/token-service';
 import { Link } from 'react-router-dom';
 import { Style } from 'radium';
 
-import './NavBar.css';
-
 export default function NavBar() {
   const contextFunctions = useContext(AppContext);
 

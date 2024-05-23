@@ -3,8 +3,6 @@ import config from '../../../config';
 import TokenService from '../../../Services/token-service';
 import AppContext from '../../../Context';
 
-import './FavorSubmission.css';
-
 function FavorSubmission() {
   const context = useContext(AppContext);
 

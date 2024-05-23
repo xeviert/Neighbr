@@ -2,8 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../Components/Login/Login'
 
-import '../Components/Login/LoginForm.css'
-
 export default function LoginRoute() {
     const navigate = useNavigate();
 

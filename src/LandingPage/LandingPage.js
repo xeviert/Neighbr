@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import TokenService from '../Services/token-service';
-import './LandingPage.css';
 
 export default function LandingPage() {
   const renderLoggedOutPage = () => {

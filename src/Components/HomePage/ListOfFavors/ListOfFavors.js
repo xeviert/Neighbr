@@ -2,8 +2,6 @@ import React, { useContext } from 'react';
 import AppContext from '../../../Context';
 import FavorItem from '../FavorItem/FavorItem';
 
-import './ListOfFavors.css';
-
 function ListOfFavors() {
   const context = useContext(AppContext);
   const { favors } = context;
