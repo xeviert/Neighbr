@@ -12,7 +12,7 @@ export default function NavBar() {
       <header>
         <div id='desktop-header'>
           <h1 id='neighbr'>Neighbr</h1>
-          <nav className='links'>
+          <nav >
             <Style
               scopeSelector='.links'
               rules={{
@@ -20,13 +20,13 @@ export default function NavBar() {
                 'a:visited': { color: 'white' },
               }}
             />
-            <Link className='link' to='/about'>
+            <Link to='/about'>
               about
             </Link>
-            <Link className='link' to='/login'>
+            <Link to='/login'>
               login
             </Link>
-            <Link className='link' to='/register'>
+            <Link to='/register'>
               register
             </Link>
           </nav>
@@ -40,7 +40,7 @@ export default function NavBar() {
       <header>
         <div id='desktop-header'>
           <h1 id='neighbr'>Neighbr</h1>
-          <nav className='links'>
+          <nav >
             <Style
               scopeSelector='.links'
               rules={{
@@ -48,17 +48,16 @@ export default function NavBar() {
                 'a:visited': { color: 'white' },
               }}
             />
-            <Link className='link' to='/'>
+            <Link to='/'>
               home
             </Link>
-            <Link className='link' to='/profile'>
+            <Link to='/profile'>
               profile
             </Link>
-            <Link className='link' to='/about'>
+            <Link to='/about'>
               about
             </Link>
             <Link
-              className='link'
               to='/login'
               onClick={(e) => contextFunctions.processLogout(e)}
             >

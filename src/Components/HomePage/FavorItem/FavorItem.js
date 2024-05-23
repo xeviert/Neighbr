@@ -9,17 +9,17 @@ function FavorItem(props) {
   let dt = props.posted;
 
   return (
-    <div className='favor-item'>
-      <div className='favor-item-initials'>
+    <div>
+      <div>
         {first}
         {last}
       </div>
-      <div id='status'>
-        <h3 id='favor-title'>{props.title}</h3>
+      <div>
+        <h3>{props.title}</h3>
 
-        <div className='payment-info'>payment: {props.payment}</div>
+        <div>payment: {props.payment}</div>
         <div>{props.description}</div>
-        <div className='time-posted'>
+        <div>
           posted: {Moment(dt).local().fromNow()}
         </div>
       </div>

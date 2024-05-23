@@ -7,7 +7,7 @@ function ListOfFavors() {
   const { favors } = context;
 
   return (
-    <section className='favors-list'>
+    <section>
       {favors.map((favor) => (
         <FavorItem
           title={favor.title}

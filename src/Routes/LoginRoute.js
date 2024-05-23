@@ -11,8 +11,8 @@ export default function LoginRoute() {
 
     return (
         <section id='login-page'>
-          <h2 className='login-header'>Login</h2>
-          <div className='login-body'>
+          <h2>Login</h2>
+          <div>
             <LoginForm onLoginSuccess={handleLoginSuccess} />
           </div>
         </section>

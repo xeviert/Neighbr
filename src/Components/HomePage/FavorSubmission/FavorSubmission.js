@@ -52,9 +52,9 @@ function FavorSubmission() {
   const { first_name, last_name } = context;
 
   return (
-    <div id='favor-form'>
-      <div id='sub-form'>
-        <div className='initials-sub'>
+    <div>
+      <div>
+        <div>
           {first_name.charAt(0)}
           {last_name.charAt(0)}
         </div>

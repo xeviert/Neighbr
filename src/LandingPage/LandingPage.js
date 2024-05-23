@@ -5,7 +5,7 @@ export default function LandingPage() {
   const renderLoggedOutPage = () => {
     return (
       <div id='about-page'>
-        <section className='info'>
+        <section>
           <h3>Help Your Neighbr</h3>
           <p>
             Neighbr is an online bulletin board specifically for things that
@@ -15,7 +15,7 @@ export default function LandingPage() {
           </p>
         </section>
 
-        <section className='info'>
+        <section>
           <h3>Need Help With Something?</h3>
           <p>
             Sometimes you need an extra set of hands to help you with things
@@ -23,7 +23,7 @@ export default function LandingPage() {
             task.
           </p>
         </section>
-        <section className='info'>
+        <section>
           <h3>Check it out!</h3>
           <p>
             Register to create an account. This gives access to a list of favors
@@ -31,21 +31,21 @@ export default function LandingPage() {
           </p>
         </section>
 
-        <section className='phone'>
+        <section >
           <img
             src='/images/register.png'
             alt='Register page'
-            className='screenshot'
+            
           />
           <img
             src='/images/home.png'
             alt='List of favors'
-            className='screenshot'
+            
           />
           <img
             src='/images/profile.png'
             alt='User profile page'
-            className='screenshot'
+            
           />
         </section>
       </div>
@@ -71,7 +71,7 @@ export default function LandingPage() {
           </Link>
         </section>
 
-        <section className='info'>
+        <section>
           <div>
             <h3>Help Your Neighbr</h3>
           </div>
@@ -83,7 +83,7 @@ export default function LandingPage() {
           </p>
         </section>
 
-        <section className='info'>
+        <section>
           <div>
             <h3>Need Help With Something?</h3>
           </div>
@@ -93,7 +93,7 @@ export default function LandingPage() {
             task.
           </p>
         </section>
-        <section className='info'>
+        <section>
           <div>
             <h3>Check it out!</h3>
           </div>
@@ -103,21 +103,21 @@ export default function LandingPage() {
           </p>
         </section>
 
-        <section className='phone'>
+        <section >
           <img
             src='/images/register.png'
             alt='Register page'
-            className='screenshot'
+            
           />
           <img
             src='/images/home.png'
             alt='List of favors'
-            className='screenshot'
+            
           />
           <img
             src='/images/profile.png'
             alt='User profile page'
-            className='screenshot'
+            
           />
         </section>
       </div>
