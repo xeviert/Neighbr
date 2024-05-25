@@ -13,6 +13,7 @@ export function App() {
 
   return (
     <>
+      <div className="bg-green-500 p-4">
       <NavBar />
       <Routes>
         <Route path='/about' element={<LandingPage />} />
@@ -26,6 +27,7 @@ export function App() {
         </Route>
       </Routes>
       <Footer />
+      </div>
     </>
   );
 }
